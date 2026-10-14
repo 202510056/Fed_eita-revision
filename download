@@ -1,0 +1,7 @@
+data/*.csv
+__pycache__/
+*.pyc
+reproduced/
+results_revision/
+results_revision_quick/
+.venv/
