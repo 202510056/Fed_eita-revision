@@ -1,0 +1,12 @@
+TON-IoT ID training rows: 252,657; classes: 7; features: 15
+
+seed 42: payload per client = 7,616 bytes (7.6 KB); all 5 clients = 38.1 KB
+seed 7: payload per client = 7,616 bytes (7.6 KB); all 5 clients = 38.1 KB
+seed 13: payload per client = 7,616 bytes (7.6 KB); all 5 clients = 38.1 KB
+seed 99: payload per client = 7,616 bytes (7.6 KB); all 5 clients = 38.1 KB
+seed 2024: payload per client = 7,616 bytes (7.6 KB); all 5 clients = 38.1 KB
+
+max |class mean (aggregated) - class mean (pooled)|             = 1.138e-14
+max |class covariance (aggregated) - class covariance (pooled)| = 5.537e-15
+(the Mahalanobis model is fully determined by these class means and covariances)
+RESULT: aggregated sufficient statistics reproduce the pooled estimate to machine precision

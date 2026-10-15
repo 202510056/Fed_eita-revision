@@ -1,0 +1,132 @@
+==============================================================================
+Fed-EITA revision ADDITIONS | backend=xgboost | seeds=10 | LEAKFREE=1 | TRUST_ENERGY=margin
+==============================================================================
+TON-IoT: 461,043 rows | train=290,457 val=32,273 test=138,313 | LEAKFREE=True
+
+──────────────────────────────────────────────────────────────────────────────
+A) Robust aggregation baselines (prediction level)
+──────────────────────────────────────────────────────────────────────────────
+  features fitted without ['backdoor', 'injection', 'ransomware']: ['src_ip_bytes', 'dst_port', 'dst_ip_bytes', 'conn_state', 'src_port', 'duration', 'dst_bytes', 'src_bytes', 'src_pkts', 'dst_pkts', 'service', 'proto', 'dns_qtype', 'dns_qclass', 'dns_rcode']
+  noise=moderate seed=42    Fed-EITA acc=98.955 AUROC=90.90 | Median acc=98.990 AUROC=90.95  (2.7s)
+  noise=moderate seed=7     Fed-EITA acc=98.940 AUROC=90.57 | Median acc=99.085 AUROC=92.22  (2.6s)
+  noise=moderate seed=13    Fed-EITA acc=98.705 AUROC=88.69 | Median acc=98.950 AUROC=87.63  (2.7s)
+  noise=moderate seed=99    Fed-EITA acc=98.975 AUROC=88.14 | Median acc=98.955 AUROC=88.17  (2.8s)
+  noise=moderate seed=2024  Fed-EITA acc=99.095 AUROC=89.70 | Median acc=99.105 AUROC=88.93  (2.6s)
+  noise=moderate seed=1     Fed-EITA acc=98.495 AUROC=84.78 | Median acc=98.545 AUROC=83.58  (2.8s)
+  noise=moderate seed=3     Fed-EITA acc=98.825 AUROC=92.21 | Median acc=98.745 AUROC=91.70  (4.3s)
+  noise=moderate seed=5     Fed-EITA acc=98.920 AUROC=85.81 | Median acc=98.890 AUROC=86.73  (3.1s)
+  noise=moderate seed=11    Fed-EITA acc=98.925 AUROC=93.17 | Median acc=98.415 AUROC=90.84  (2.6s)
+  noise=moderate seed=17    Fed-EITA acc=99.120 AUROC=89.96 | Median acc=99.005 AUROC=89.66  (2.5s)
+  noise=severe   seed=42    Fed-EITA acc=98.810 AUROC=90.23 | Median acc=98.990 AUROC=90.84  (2.6s)
+  noise=severe   seed=7     Fed-EITA acc=98.795 AUROC=88.97 | Median acc=99.055 AUROC=90.75  (2.5s)
+  noise=severe   seed=13    Fed-EITA acc=98.475 AUROC=87.46 | Median acc=98.735 AUROC=87.46  (2.5s)
+  noise=severe   seed=99    Fed-EITA acc=99.000 AUROC=86.90 | Median acc=98.775 AUROC=86.73  (2.6s)
+  noise=severe   seed=2024  Fed-EITA acc=99.075 AUROC=86.74 | Median acc=99.055 AUROC=77.54  (2.6s)
+  noise=severe   seed=1     Fed-EITA acc=98.395 AUROC=84.95 | Median acc=98.485 AUROC=83.80  (2.7s)
+  noise=severe   seed=3     Fed-EITA acc=98.885 AUROC=91.97 | Median acc=98.790 AUROC=92.89  (2.5s)
+  noise=severe   seed=5     Fed-EITA acc=98.880 AUROC=84.62 | Median acc=98.540 AUROC=84.41  (2.7s)
+  noise=severe   seed=11    Fed-EITA acc=98.925 AUROC=92.87 | Median acc=97.970 AUROC=88.85  (2.6s)
+  noise=severe   seed=17    Fed-EITA acc=99.100 AUROC=88.80 | Median acc=98.955 AUROC=88.88  (2.6s)
+                         acc             f1  ... trust_w_c3 trust_w_c4       
+                        mean    std    mean  ...        std       mean    std
+noise    aggregation                         ...                             
+moderate fedavg       97.118  3.029  96.420  ...      0.023      0.163  0.020
+         fedeita      98.896  0.184  98.813  ...      0.023      0.163  0.020
+         krum         98.413  0.543  98.321  ...      0.023      0.163  0.020
+         median       98.868  0.230  98.783  ...      0.023      0.163  0.020
+         multikrum    98.718  0.451  98.624  ...      0.023      0.163  0.020
+         trimmed      98.955  0.169  98.880  ...      0.023      0.163  0.020
+         uniform      98.952  0.169  98.877  ...      0.023      0.163  0.020
+severe   fedavg       96.737  3.312  95.886  ...      0.024      0.156  0.016
+         fedeita      98.834  0.234  98.749  ...      0.024      0.156  0.016
+         krum         95.992  2.810  94.958  ...      0.024      0.156  0.016
+         median       98.735  0.335  98.632  ...      0.024      0.156  0.016
+         multikrum    98.217  0.762  98.073  ...      0.024      0.156  0.016
+         trimmed      98.908  0.205  98.826  ...      0.024      0.156  0.016
+         uniform      98.886  0.194  98.806  ...      0.024      0.156  0.016
+
+[14 rows x 14 columns]
+   noise            comparison    metric  mean_diff  ci95_low  ci95_high  cohen_dz  p_ttest  p_holm
+moderate    Fed-EITA vs fedavg       acc     1.7770    0.3245     3.7640    0.5908   0.0946  0.6620
+moderate    Fed-EITA vs fedavg ood_auroc     0.9953   -0.1831     2.0165    0.5320   0.1268  0.7606
+moderate   Fed-EITA vs uniform       acc    -0.0560   -0.0945    -0.0205   -0.8712   0.0223  0.2676
+moderate   Fed-EITA vs uniform ood_auroc     0.9997   -0.1598     2.8851    0.3499   0.2973  1.0000
+moderate    Fed-EITA vs median       acc     0.0270   -0.0775     0.1560    0.1353   0.6789  1.0000
+moderate    Fed-EITA vs median ood_auroc     0.3506   -0.3050     0.9961    0.3137   0.3471  1.0000
+moderate   Fed-EITA vs trimmed       acc    -0.0595   -0.1020    -0.0185   -0.8188   0.0292  0.3135
+moderate   Fed-EITA vs trimmed ood_auroc    -0.1691   -0.8560     0.6093   -0.1339   0.6820  1.0000
+moderate      Fed-EITA vs krum       acc     0.4825    0.1645     0.8465    0.8238   0.0285  0.3135
+moderate      Fed-EITA vs krum ood_auroc     2.5205    0.2429     4.8668    0.6380   0.0744  0.5952
+moderate Fed-EITA vs multikrum       acc     0.1780   -0.0295     0.4240    0.4636   0.1767  0.8836
+moderate Fed-EITA vs multikrum ood_auroc     1.2412    0.2714     2.4205    0.6782   0.0606  0.5450
+  severe    Fed-EITA vs fedavg       acc     2.0970    0.4145     4.1855    0.6445   0.0720  0.6480
+  severe    Fed-EITA vs fedavg ood_auroc     0.8015   -0.1816     1.7390    0.4855   0.1591  0.9545
+  severe   Fed-EITA vs uniform       acc    -0.0525   -0.1105    -0.0015   -0.5614   0.1096  0.8768
+  severe   Fed-EITA vs uniform ood_auroc     1.1740   -0.1459     3.3228    0.3649   0.2782  1.0000
+  severe    Fed-EITA vs median       acc     0.0990   -0.0890     0.3325    0.2727   0.4109  1.0000
+  severe    Fed-EITA vs median ood_auroc     1.1355   -0.4235     3.3282    0.3518   0.2948  1.0000
+  severe   Fed-EITA vs trimmed       acc    -0.0740   -0.1535    -0.0005   -0.5612   0.1097  0.8768
+  severe   Fed-EITA vs trimmed ood_auroc    -0.4284   -1.3254     0.4904   -0.2709   0.4139  1.0000
+  severe      Fed-EITA vs krum       acc     2.8415    1.3315     4.5896    1.0269   0.0100  0.1205
+  severe      Fed-EITA vs krum ood_auroc     4.6313    1.9897     7.4087    0.9824   0.0126  0.1385
+  severe Fed-EITA vs multikrum       acc     0.6170    0.2500     1.0150    0.9582   0.0142  0.1425
+  severe Fed-EITA vs multikrum ood_auroc     2.5539   -0.6793     6.3591    0.4181   0.2188  1.0000
+
+──────────────────────────────────────────────────────────────────────────────
+B) Rotating held-out attack families
+──────────────────────────────────────────────────────────────────────────────
+  features fitted without ['ransomware']: ['src_ip_bytes', 'dst_port', 'dst_ip_bytes', 'src_port', 'conn_state', 'duration', 'dst_bytes', 'src_bytes', 'dst_pkts', 'src_pkts', 'service', 'proto', 'dns_qtype', 'dns_qclass', 'dns_rcode']
+  held-out=ransomware  seed=42    AUROC=73.12 FPR@95=49.31 ID-acc=98.67 (3.1s)
+  held-out=ransomware  seed=7     AUROC=76.07 FPR@95=46.99 ID-acc=98.52 (3.3s)
+  held-out=ransomware  seed=13    AUROC=68.53 FPR@95=54.83 ID-acc=98.65 (3.1s)
+  held-out=ransomware  seed=99    AUROC=77.95 FPR@95=48.41 ID-acc=95.36 (3.0s)
+  held-out=ransomware  seed=2024  AUROC=76.52 FPR@95=50.37 ID-acc=98.83 (3.9s)
+  held-out=ransomware  seed=1     AUROC=69.04 FPR@95=46.87 ID-acc=98.54 (3.1s)
+  held-out=ransomware  seed=3     AUROC=82.37 FPR@95=37.42 ID-acc=98.61 (3.0s)
+  held-out=ransomware  seed=5     AUROC=81.54 FPR@95=54.02 ID-acc=98.02 (3.1s)
+  held-out=ransomware  seed=11    AUROC=72.25 FPR@95=51.60 ID-acc=98.59 (3.1s)
+  held-out=ransomware  seed=17    AUROC=78.90 FPR@95=50.64 ID-acc=98.81 (3.5s)
+  features fitted without ['backdoor']: ['src_ip_bytes', 'dst_port', 'dst_ip_bytes', 'src_port', 'conn_state', 'dst_bytes', 'duration', 'src_bytes', 'src_pkts', 'dst_pkts', 'service', 'proto', 'dns_qtype', 'dns_qclass', 'dns_rcode']
+  held-out=backdoor    seed=42    AUROC=84.54 FPR@95=28.34 ID-acc=98.56 (3.2s)
+  held-out=backdoor    seed=7     AUROC=79.23 FPR@95=40.01 ID-acc=98.85 (3.2s)
+  held-out=backdoor    seed=13    AUROC=82.64 FPR@95=28.40 ID-acc=98.39 (3.2s)
+  held-out=backdoor    seed=99    AUROC=92.40 FPR@95=13.25 ID-acc=98.56 (3.0s)
+  held-out=backdoor    seed=2024  AUROC=85.65 FPR@95=28.96 ID-acc=98.76 (3.2s)
+  held-out=backdoor    seed=1     AUROC=93.62 FPR@95=11.79 ID-acc=98.86 (3.2s)
+  held-out=backdoor    seed=3     AUROC=92.39 FPR@95=10.31 ID-acc=98.45 (3.1s)
+  held-out=backdoor    seed=5     AUROC=66.25 FPR@95=58.09 ID-acc=98.61 (3.1s)
+  held-out=backdoor    seed=11    AUROC=47.70 FPR@95=86.94 ID-acc=98.63 (3.0s)
+  held-out=backdoor    seed=17    AUROC=83.64 FPR@95=24.03 ID-acc=98.67 (3.1s)
+  features fitted without ['injection']: ['src_ip_bytes', 'dst_port', 'src_port', 'dst_ip_bytes', 'conn_state', 'duration', 'dst_bytes', 'src_bytes', 'dst_pkts', 'src_pkts', 'proto', 'service', 'dns_qtype', 'dns_qclass', 'dns_rcode']
+  held-out=injection   seed=42    AUROC=98.28 FPR@95=2.84 ID-acc=98.85 (3.2s)
+  held-out=injection   seed=7     AUROC=98.22 FPR@95=3.89 ID-acc=99.00 (3.0s)
+  held-out=injection   seed=13    AUROC=98.18 FPR@95=2.42 ID-acc=98.95 (3.0s)
+  held-out=injection   seed=99    AUROC=98.28 FPR@95=2.27 ID-acc=98.96 (3.2s)
+  held-out=injection   seed=2024  AUROC=98.15 FPR@95=6.73 ID-acc=99.00 (3.3s)
+  held-out=injection   seed=1     AUROC=98.64 FPR@95=4.90 ID-acc=98.98 (3.2s)
+  held-out=injection   seed=3     AUROC=98.28 FPR@95=3.45 ID-acc=98.72 (3.2s)
+  held-out=injection   seed=5     AUROC=98.43 FPR@95=3.26 ID-acc=98.84 (3.1s)
+  held-out=injection   seed=11    AUROC=97.97 FPR@95=5.34 ID-acc=98.80 (2.9s)
+  held-out=injection   seed=17    AUROC=98.05 FPR@95=4.07 ID-acc=99.05 (3.3s)
+  held-out=all three   seed=42    AUROC=90.90 FPR@95=45.55 ID-acc=98.95 (2.7s)
+  held-out=all three   seed=7     AUROC=90.57 FPR@95=35.38 ID-acc=98.94 (2.6s)
+  held-out=all three   seed=13    AUROC=88.69 FPR@95=35.23 ID-acc=98.70 (2.4s)
+  held-out=all three   seed=99    AUROC=88.14 FPR@95=28.17 ID-acc=98.98 (2.2s)
+  held-out=all three   seed=2024  AUROC=89.70 FPR@95=25.58 ID-acc=99.09 (2.3s)
+  held-out=all three   seed=1     AUROC=84.78 FPR@95=66.06 ID-acc=98.50 (2.5s)
+  held-out=all three   seed=3     AUROC=92.21 FPR@95=35.05 ID-acc=98.83 (2.4s)
+  held-out=all three   seed=5     AUROC=85.81 FPR@95=45.65 ID-acc=98.92 (2.5s)
+  held-out=all three   seed=11    AUROC=93.17 FPR@95=25.74 ID-acc=98.92 (2.3s)
+  held-out=all three   seed=17    AUROC=89.96 FPR@95=39.53 ID-acc=99.12 (2.3s)
+                        auroc                     ...    fpr95                     
+held_out            all three backdoor injection  ... backdoor injection ransomware
+score                                             ...                              
+Energy (Eq. 9)          88.11    76.54     97.24  ...    35.34      9.43      42.15
+Entropy                 90.31    85.06     98.88  ...    26.69      2.36      51.98
+Equal-weight fusion     88.85    79.31     97.98  ...    34.17      4.60      47.90
+Fed-EITA fusion         89.39    80.81     98.25  ...    33.01      3.92      49.04
+MSP                     90.01    88.78     98.82  ...    19.31      2.41      51.65
+
+[5 rows x 8 columns]
+
+Done in 3.3 min → results_v3/

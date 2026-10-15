@@ -1,0 +1,19 @@
+,,auroc,auroc,aupr,aupr,fpr95,fpr95,id_acc,id_acc
+,,mean,std,mean,std,mean,std,mean,std
+aggregation,score,,,,,,,,
+fedavg,"Energy (margin, Eq. 9)",88.806,2.588,65.609,11.18,36.528,4.179,97.118,3.029
+fedavg,"Energy (prob., as implemented)",50.665,2.438,20.404,0.865,99.966,0.01,97.118,3.029
+fedavg,Entropy,89.21,1.672,65.348,4.85,38.16,3.164,97.118,3.029
+fedavg,"Equal-weight fusion (H,E,M)",88.052,2.144,60.746,7.179,40.685,4.47,97.118,3.029
+fedavg,Fed-EITA fused (as implemented),87.64,1.772,58.086,4.335,41.138,3.295,97.118,3.029
+fedavg,Fed-EITA fused (margin energy),88.398,2.003,62.463,6.418,40.088,3.524,97.118,3.029
+fedavg,MSP,88.185,2.416,60.919,8.541,38.654,4.063,97.118,3.029
+fedavg,Mahalanobis,56.825,2.425,20.879,0.946,75.67,8.431,97.118,3.029
+fedeita,"Energy (margin, Eq. 9)",88.111,4.472,65.04,9.719,42.345,16.727,98.896,0.184
+fedeita,"Energy (prob., as implemented)",50.288,1.273,20.268,0.432,99.956,0.024,98.896,0.184
+fedeita,Entropy,90.306,2.396,68.946,4.032,37.756,9.888,98.896,0.184
+fedeita,"Equal-weight fusion (H,E,M)",88.848,2.806,63.393,5.529,40.038,11.321,98.896,0.184
+fedeita,Fed-EITA fused (as implemented),88.835,2.376,60.665,4.004,38.882,12.152,98.896,0.184
+fedeita,Fed-EITA fused (margin energy),89.393,2.634,65.106,4.833,38.195,12.154,98.896,0.184
+fedeita,MSP,90.012,2.658,67.446,5.688,37.878,11.026,98.896,0.184
+fedeita,Mahalanobis,56.825,2.425,20.879,0.946,75.67,8.431,98.896,0.184

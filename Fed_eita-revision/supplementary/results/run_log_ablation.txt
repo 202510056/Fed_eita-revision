@@ -1,0 +1,48 @@
+==============================================================================
+Fed-EITA revision ADDITIONS | backend=xgboost | seeds=10 | LEAKFREE=1 | TRUST_ENERGY=margin
+==============================================================================
+TON-IoT: 461,043 rows | train=290,457 val=32,273 test=138,313 | LEAKFREE=True
+──────────────────────────────────────────────────────────────────────────────
+Trust ablation | backend=xgboost | seeds=10 | LEAKFREE=True | TRUST_ENERGY=margin
+──────────────────────────────────────────────────────────────────────────────
+  features fitted without ['backdoor', 'injection', 'ransomware']: ['src_ip_bytes', 'dst_port', 'dst_ip_bytes', 'conn_state', 'src_port', 'duration', 'dst_bytes', 'src_bytes', 'src_pkts', 'dst_pkts', 'service', 'proto', 'dns_qtype', 'dns_qclass', 'dns_rcode']
+  noise=moderate seed=42    Fed-EITA acc=98.955 AUROC=90.90 noisy/clean weight=0.152/0.232  (8.1s)
+  noise=moderate seed=7     Fed-EITA acc=98.940 AUROC=90.57 noisy/clean weight=0.152/0.232  (7.8s)
+  noise=moderate seed=13    Fed-EITA acc=98.705 AUROC=88.69 noisy/clean weight=0.145/0.237  (9.3s)
+  noise=moderate seed=99    Fed-EITA acc=98.975 AUROC=88.14 noisy/clean weight=0.163/0.225  (8.9s)
+  noise=moderate seed=2024  Fed-EITA acc=99.095 AUROC=89.70 noisy/clean weight=0.215/0.190  (7.6s)
+  noise=moderate seed=1     Fed-EITA acc=98.495 AUROC=84.78 noisy/clean weight=0.144/0.237  (7.5s)
+  noise=moderate seed=3     Fed-EITA acc=98.825 AUROC=92.21 noisy/clean weight=0.154/0.231  (8.1s)
+  noise=moderate seed=5     Fed-EITA acc=98.920 AUROC=85.81 noisy/clean weight=0.153/0.232  (8.2s)
+  noise=moderate seed=11    Fed-EITA acc=98.925 AUROC=93.17 noisy/clean weight=0.167/0.222  (7.4s)
+  noise=moderate seed=17    Fed-EITA acc=99.120 AUROC=89.96 noisy/clean weight=0.152/0.232  (7.9s)
+  noise=severe   seed=42    Fed-EITA acc=98.810 AUROC=90.23 noisy/clean weight=0.150/0.234  (9.2s)
+  noise=severe   seed=7     Fed-EITA acc=98.795 AUROC=88.97 noisy/clean weight=0.148/0.235  (7.8s)
+  noise=severe   seed=13    Fed-EITA acc=98.475 AUROC=87.46 noisy/clean weight=0.140/0.240  (7.2s)
+  noise=severe   seed=99    Fed-EITA acc=99.000 AUROC=86.90 noisy/clean weight=0.150/0.233  (7.9s)
+  noise=severe   seed=2024  Fed-EITA acc=99.075 AUROC=86.74 noisy/clean weight=0.203/0.198  (8.7s)
+  noise=severe   seed=1     Fed-EITA acc=98.395 AUROC=84.95 noisy/clean weight=0.138/0.241  (9.0s)
+  noise=severe   seed=3     Fed-EITA acc=98.885 AUROC=91.97 noisy/clean weight=0.152/0.232  (10.6s)
+  noise=severe   seed=5     Fed-EITA acc=98.880 AUROC=84.62 noisy/clean weight=0.150/0.233  (8.8s)
+  noise=severe   seed=11    Fed-EITA acc=98.925 AUROC=92.87 noisy/clean weight=0.158/0.228  (7.4s)
+  noise=severe   seed=17    Fed-EITA acc=99.100 AUROC=88.80 noisy/clean weight=0.151/0.233  (7.6s)
+INTEGRITY CHECK PASSED: Fed-EITA rows reproduce add_A_robust_per_seed.csv exactly (max deviation 1.4e-14)
+
+                              acc  macro_f1  macro_fpr  ood_auroc  w_noisy_mean  w_clean_mean
+noise    config                                                                              
+moderate fedavg            97.118    82.857      1.513     88.398         0.184         0.211
+         fedeita           98.896    88.307      0.496     89.393         0.160         0.227
+         trust_acc         98.938    88.834      0.473     89.441         0.202         0.199
+         trust_acc_ar      98.869    88.273      0.507     89.392         0.142         0.238
+         trust_ar          98.036    85.993      0.962     87.627         0.026         0.316
+         trust_full_nomem  98.896    88.307      0.496     89.393         0.160         0.227
+         uniform           98.952    88.847      0.463     88.393         0.200         0.200
+severe   fedavg            96.737    81.359      1.726     87.549         0.184         0.211
+         fedeita           98.834    88.139      0.515     88.350         0.154         0.231
+         trust_acc         98.864    88.356      0.510     88.628         0.199         0.201
+         trust_acc_ar      98.800    87.993      0.530     88.488         0.134         0.244
+         trust_ar          98.528    87.481      0.655     86.675         0.017         0.322
+         trust_full_nomem  98.834    88.140      0.515     88.351         0.154         0.231
+         uniform           98.886    88.364      0.495     87.176         0.200         0.200
+
+Done in 2.9 min → results_v3/

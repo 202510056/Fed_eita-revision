@@ -1,0 +1,41 @@
+family,comparison,metric,n,mean_diff,ci95_low,ci95_high,cohen_dz,t_stat,df,p_ttest,p_wilcoxon,shapiro_p_diff,p_ttest_holm,p_wilcoxon_holm
+Edge-IIoT α=0.5,Fed-EITA vs FedAvg (size-weighted),acc,5,0.28889,0.18778,0.38444,2.26408,5.06264,4,0.00717,0.0625,0.98348,0.043,0.375
+Edge-IIoT α=0.5,Fed-EITA vs FedAvg (size-weighted),f1,5,0.30136,0.14278,0.44087,1.58785,3.55054,4,0.02379,0.0625,0.91942,0.11894,0.375
+Edge-IIoT α=0.5,Fed-EITA vs Uniform averaging,acc,5,0.07556,0.02333,0.16889,0.72509,1.62135,4,0.18026,0.0625,0.00192,0.54078,0.375
+Edge-IIoT α=0.5,Fed-EITA vs Uniform averaging,f1,5,0.06096,0.02156,0.12318,0.87567,1.95806,4,0.12182,0.0625,0.01978,0.4873,0.375
+Edge-IIoT α=0.5,Fed-EITA vs Drift-weighted (FedProx-inspired),acc,5,0.05333,0.00556,0.13333,0.59732,1.33565,4,0.25259,0.125,0.0095,0.54078,0.375
+Edge-IIoT α=0.5,Fed-EITA vs Drift-weighted (FedProx-inspired),f1,5,0.03754,0.00011,0.08983,0.62965,1.40793,4,0.23192,0.1875,0.24994,0.54078,0.375
+TON-IoT α=0.1,Fed-EITA vs FedAvg (size-weighted),acc,5,3.306,-2.544,9.248,0.42639,0.95345,4,0.39435,0.4375,0.57917,1.0,1.0
+TON-IoT α=0.1,Fed-EITA vs FedAvg (size-weighted),f1,5,5.53668,-3.7437,14.51874,0.47536,1.06293,4,0.34773,0.4375,0.60538,1.0,1.0
+TON-IoT α=0.1,Fed-EITA vs Uniform averaging,acc,5,2.023,-1.977,8.937,0.26333,0.58883,4,0.58762,0.625,0.00381,1.0,1.0
+TON-IoT α=0.1,Fed-EITA vs Uniform averaging,f1,5,0.68434,-3.04359,6.36784,0.1066,0.23836,4,0.82332,0.625,0.02238,1.0,1.0
+TON-IoT α=0.1,Fed-EITA vs Drift-weighted (FedProx-inspired),acc,5,4.96,-1.506,16.104,0.40402,0.90342,4,0.41739,0.8125,0.00349,1.0,1.0
+TON-IoT α=0.1,Fed-EITA vs Drift-weighted (FedProx-inspired),f1,5,3.99812,-2.42448,14.10143,0.35524,0.79434,4,0.47146,0.8125,0.02275,1.0,1.0
+TON-IoT α=0.5,Fed-EITA vs FedAvg (size-weighted),acc,5,0.923,0.016,2.657,0.47865,1.07029,4,0.34477,0.125,0.00039,1.0,0.625
+TON-IoT α=0.5,Fed-EITA vs FedAvg (size-weighted),f1,5,1.35938,0.04231,3.92119,0.4764,1.06526,4,0.34679,0.0625,0.00025,1.0,0.375
+TON-IoT α=0.5,Fed-EITA vs Uniform averaging,acc,5,-0.014,-0.034,0.002,-0.60812,-1.3598,4,0.24549,0.25,0.6853,1.0,1.0
+TON-IoT α=0.5,Fed-EITA vs Uniform averaging,f1,5,-0.01394,-0.03406,0.00227,-0.59501,-1.33048,4,0.25414,0.4375,0.63736,1.0,1.0
+TON-IoT α=0.5,Fed-EITA vs Drift-weighted (FedProx-inspired),acc,5,-0.007,-0.016,0.003,-0.58132,-1.29987,4,0.26349,0.25,0.78688,1.0,1.0
+TON-IoT α=0.5,Fed-EITA vs Drift-weighted (FedProx-inspired),f1,5,-0.00681,-0.01589,0.00249,-0.56405,-1.26125,4,0.27576,0.4375,0.84961,1.0,1.0
+TON-IoT α=1.0,Fed-EITA vs FedAvg (size-weighted),acc,5,0.235,0.101,0.39,1.34921,3.01691,4,0.03928,0.0625,0.31902,0.23569,0.375
+TON-IoT α=1.0,Fed-EITA vs FedAvg (size-weighted),f1,5,0.2498,0.0962,0.43263,1.2307,2.75193,4,0.05127,0.0625,0.21081,0.25636,0.375
+TON-IoT α=1.0,Fed-EITA vs Uniform averaging,acc,5,-0.007,-0.051,0.035,-0.12738,-0.28483,4,0.78992,0.875,0.86312,1.0,1.0
+TON-IoT α=1.0,Fed-EITA vs Uniform averaging,f1,5,-0.0059,-0.05208,0.03527,-0.102,-0.22809,4,0.83076,0.875,0.89244,1.0,1.0
+TON-IoT α=1.0,Fed-EITA vs Drift-weighted (FedProx-inspired),acc,5,-0.008,-0.05702,0.032,-0.14071,-0.31463,4,0.76877,0.875,0.81444,1.0,1.0
+TON-IoT α=1.0,Fed-EITA vs Drift-weighted (FedProx-inspired),f1,5,-0.00692,-0.05502,0.03677,-0.11577,-0.25888,4,0.80851,0.875,0.85081,1.0,1.0
+TON-IoT OOD,Fused (trust) vs MSP (fedeita),auroc,5,-0.67445,-0.97205,-0.4255,-1.87167,-4.18518,4,0.01386,0.0625,0.75416,0.15246,1.0
+TON-IoT OOD,Fused (trust) vs MSP (fedeita),fpr95,5,-3.605,-11.729,3.65,-0.36601,-0.81842,4,0.45907,0.4375,0.65736,1.0,1.0
+TON-IoT OOD,Fused (trust) vs MSP (fedavg),auroc,5,2.1707,0.26793,4.07348,0.90393,2.02125,4,0.11334,0.1875,0.48414,1.0,1.0
+TON-IoT OOD,Fused (trust) vs MSP (fedavg),fpr95,5,-5.625,-13.857,3.474,-0.53323,-1.19234,4,0.29903,0.4375,0.92881,1.0,1.0
+TON-IoT OOD,Fused (trust) vs Entropy (fedeita),auroc,5,-1.31636,-1.56993,-1.06256,-3.84421,-8.59592,4,0.00101,0.0625,0.42989,0.01308,1.0
+TON-IoT OOD,Fused (trust) vs Entropy (fedeita),fpr95,5,-1.949,-10.54,4.9636,-0.20002,-0.44725,4,0.67784,1.0,0.30008,1.0,1.0
+TON-IoT OOD,"Fused (trust) vs Energy (prob., as implemented) (fedeita)",auroc,5,39.57926,37.28083,41.41206,15.30453,34.22196,4,0.0,0.0625,0.63094,7e-05,1.0
+TON-IoT OOD,"Fused (trust) vs Energy (prob., as implemented) (fedeita)",fpr95,5,-68.675,-74.804,-62.353,-8.12224,-18.16189,4,5e-05,0.0625,0.97664,0.00076,1.0
+TON-IoT OOD,"Fused (trust) vs Energy (margin, Eq. 9) (fedeita)",auroc,5,2.09106,-1.2594,6.90678,0.39475,0.88268,4,0.42726,0.625,0.1515,1.0,1.0
+TON-IoT OOD,"Fused (trust) vs Energy (margin, Eq. 9) (fedeita)",fpr95,5,-13.986,-39.286,5.038,-0.47656,-1.06562,4,0.34664,0.4375,0.31161,1.0,1.0
+TON-IoT OOD,Fused (trust) vs Mahalanobis (fedeita),auroc,5,32.20136,30.53171,34.17975,13.44444,30.06269,4,1e-05,0.0625,0.4248,0.00011,1.0
+TON-IoT OOD,Fused (trust) vs Mahalanobis (fedeita),fpr95,5,-41.097,-53.592,-30.628,-2.78508,-6.22763,4,0.00339,0.0625,0.96063,0.04063,1.0
+TON-IoT OOD,Fused (trust) vs Fed-EITA fused (margin energy) (fedeita),auroc,5,-0.58352,-1.26698,-0.05221,-0.73334,-1.63981,4,0.17639,0.3125,0.17285,1.0,1.0
+TON-IoT OOD,Fused (trust) vs Fed-EITA fused (margin energy) (fedeita),fpr95,5,1.493,-0.899,4.854,0.38393,0.8585,4,0.43902,0.8125,0.0876,1.0,1.0
+TON-IoT OOD,"Fused (trust) vs Equal-weight fusion (H,E,M) (fedeita)",auroc,5,-0.04813,-1.04173,1.0316,-0.03697,-0.08267,4,0.93809,1.0,0.90694,1.0,1.0
+TON-IoT OOD,"Fused (trust) vs Equal-weight fusion (H,E,M) (fedeita)",fpr95,5,-0.171,-3.882,4.56,-0.03227,-0.07217,4,0.94593,0.625,0.40603,1.0,1.0

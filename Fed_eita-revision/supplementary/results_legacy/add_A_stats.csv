@@ -1,0 +1,25 @@
+noise,comparison,metric,mean_diff,ci95_low,ci95_high,cohen_dz,p_ttest,p_holm
+moderate,Fed-EITA vs fedavg,acc,1.64,0.084,3.686,0.7139,0.1857,1.0
+moderate,Fed-EITA vs fedavg,ood_auroc,1.5118,0.5323,2.4999,1.1908,0.0562,0.5414
+moderate,Fed-EITA vs uniform,acc,-0.053,-0.084,-0.026,-1.4657,0.0306,0.3669
+moderate,Fed-EITA vs uniform,ood_auroc,1.7454,-0.215,5.4744,0.4221,0.3986,1.0
+moderate,Fed-EITA vs median,acc,-0.066,-0.151,-0.013,-0.7079,0.1886,1.0
+moderate,Fed-EITA vs median,ood_auroc,-0.2893,-0.8564,0.2162,-0.4344,0.3864,1.0
+moderate,Fed-EITA vs trimmed,acc,-0.059,-0.113,-0.008,-0.8742,0.1223,0.856
+moderate,Fed-EITA vs trimmed,ood_auroc,-0.9093,-1.4873,-0.3498,-1.2926,0.0445,0.49
+moderate,Fed-EITA vs krum,acc,0.708,0.251,1.186,1.1545,0.0612,0.5414
+moderate,Fed-EITA vs krum,ood_auroc,4.0836,1.5096,6.4908,1.2071,0.0541,0.5414
+moderate,Fed-EITA vs multikrum,acc,0.127,-0.038,0.354,0.511,0.3169,1.0
+moderate,Fed-EITA vs multikrum,ood_auroc,0.6598,-0.2873,1.5445,0.5633,0.2763,1.0
+severe,Fed-EITA vs fedavg,acc,1.944,0.14,4.56,0.6755,0.2054,1.0
+severe,Fed-EITA vs fedavg,ood_auroc,1.4567,0.3771,2.479,1.0666,0.0756,0.6047
+severe,Fed-EITA vs uniform,acc,-0.079,-0.151,-0.007,-0.8516,0.1296,0.9072
+severe,Fed-EITA vs uniform,ood_auroc,1.9872,-0.2286,5.8525,0.468,0.3544,1.0
+severe,Fed-EITA vs median,acc,-0.095,-0.245,0.085,-0.4503,0.371,1.0
+severe,Fed-EITA vs median,ood_auroc,0.751,-0.8041,3.2667,0.2673,0.5822,1.0
+severe,Fed-EITA vs trimmed,acc,-0.106,-0.238,0.026,-0.6197,0.2381,1.0
+severe,Fed-EITA vs trimmed,ood_auroc,-1.1519,-1.7072,-0.5604,-1.5702,0.0246,0.2958
+severe,Fed-EITA vs krum,acc,4.088,1.754,6.393,1.3315,0.0408,0.4109
+severe,Fed-EITA vs krum,ood_auroc,5.4526,2.4583,8.6176,1.3722,0.0374,0.4109
+severe,Fed-EITA vs multikrum,acc,0.896,0.341,1.451,1.2658,0.0473,0.4259
+severe,Fed-EITA vs multikrum,ood_auroc,1.732,-0.4634,4.2303,0.5724,0.2698,1.0

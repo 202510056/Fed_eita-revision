@@ -1,0 +1,51 @@
+,,,auroc,auroc,aupr,aupr,fpr95,fpr95
+,,,mean,std,mean,std,mean,std
+aggregation,score,ood_class,,,,,,
+fedavg,"Energy (margin, Eq. 9)",backdoor,87.084,6.574,33.887,18.064,19.364,8.586
+fedavg,"Energy (margin, Eq. 9)",injection,97.768,1.583,74.3,20.971,5.658,3.391
+fedavg,"Energy (margin, Eq. 9)",ransomware,82.47,6.203,28.508,11.265,35.855,11.884
+fedavg,"Energy (prob., as implemented)",backdoor,48.512,1.443,7.596,0.298,96.994,6.671
+fedavg,"Energy (prob., as implemented)",injection,49.173,1.614,7.861,0.189,99.975,0.016
+fedavg,"Energy (prob., as implemented)",ransomware,51.528,0.626,7.951,0.062,99.975,0.016
+fedavg,Entropy,backdoor,92.068,2.661,40.063,11.377,13.386,3.311
+fedavg,Entropy,injection,98.063,1.205,68.185,11.778,4.064,2.408
+fedavg,Entropy,ransomware,77.382,2.642,17.359,3.609,42.804,10.025
+fedavg,"Equal-weight fusion (H,E,M)",backdoor,88.41,4.734,30.726,12.29,17.824,5.603
+fedavg,"Equal-weight fusion (H,E,M)",injection,97.804,1.041,66.951,10.5,4.694,2.359
+fedavg,"Equal-weight fusion (H,E,M)",ransomware,80.007,5.11,19.987,5.85,39.322,6.874
+fedavg,Fed-EITA fused (as implemented),backdoor,89.89,3.359,31.581,8.73,16.204,3.847
+fedavg,Fed-EITA fused (as implemented),injection,97.295,0.964,57.37,7.27,4.353,1.918
+fedavg,Fed-EITA fused (as implemented),ransomware,76.424,2.583,15.379,2.766,43.078,4.136
+fedavg,Fed-EITA fused (margin energy),backdoor,89.699,3.816,33.058,12.198,16.419,4.464
+fedavg,Fed-EITA fused (margin energy),injection,98.002,1.002,68.573,10.441,4.429,2.215
+fedavg,Fed-EITA fused (margin energy),ransomware,79.609,4.555,19.623,5.442,39.733,5.489
+fedavg,MSP,backdoor,91.64,3.7,36.886,12.613,12.817,4.481
+fedavg,MSP,injection,96.005,3.315,56.019,21.027,5.991,4.516
+fedavg,MSP,ransomware,75.962,2.494,15.07,2.481,42.88,9.783
+fedavg,Mahalanobis,backdoor,44.824,1.198,6.576,0.135,65.368,1.542
+fedavg,Mahalanobis,injection,66.413,5.25,10.911,1.349,84.638,3.542
+fedavg,Mahalanobis,ransomware,62.361,1.472,9.744,0.511,74.759,12.622
+fedeita,"Energy (margin, Eq. 9)",backdoor,81.558,16.451,30.05,18.326,30.134,30.484
+fedeita,"Energy (margin, Eq. 9)",injection,97.644,1.321,76.062,12.572,6.384,2.605
+fedeita,"Energy (margin, Eq. 9)",ransomware,84.489,4.529,29.935,6.783,38.886,12.041
+fedeita,"Energy (prob., as implemented)",backdoor,50.468,4.104,7.91,0.533,94.125,8.469
+fedeita,"Energy (prob., as implemented)",injection,50.08,1.986,8.138,0.329,99.968,0.02
+fedeita,"Energy (prob., as implemented)",ransomware,50.893,2.722,7.961,0.409,99.968,0.02
+fedeita,Entropy,backdoor,93.179,3.738,43.957,12.514,11.703,6.005
+fedeita,Entropy,injection,98.868,0.221,77.433,4.484,1.981,0.286
+fedeita,Entropy,ransomware,81.998,4.594,22.677,3.859,41.942,14.266
+fedeita,"Equal-weight fusion (H,E,M)",backdoor,88.479,6.12,32.235,13.19,18.827,8.463
+fedeita,"Equal-weight fusion (H,E,M)",injection,98.432,0.454,71.791,5.73,3.139,0.601
+fedeita,"Equal-weight fusion (H,E,M)",ransomware,83.305,4.063,22.971,3.739,38.246,9.343
+fedeita,Fed-EITA fused (as implemented),backdoor,90.648,4.44,33.734,9.283,15.418,6.768
+fedeita,Fed-EITA fused (as implemented),injection,97.949,0.225,62.87,3.0,2.849,0.216
+fedeita,Fed-EITA fused (as implemented),ransomware,81.51,4.234,19.552,3.499,39.607,7.408
+fedeita,Fed-EITA fused (margin energy),backdoor,89.987,5.283,34.614,12.721,16.349,6.803
+fedeita,Fed-EITA fused (margin energy),injection,98.616,0.341,73.762,4.737,2.593,0.705
+fedeita,Fed-EITA fused (margin energy),ransomware,83.228,4.269,22.995,3.711,39.066,10.319
+fedeita,MSP,backdoor,92.481,4.775,40.571,15.139,12.079,6.816
+fedeita,MSP,injection,98.708,0.127,75.855,2.853,2.351,0.214
+fedeita,MSP,ransomware,80.927,4.926,20.357,4.468,43.324,12.575
+fedeita,Mahalanobis,backdoor,44.824,1.198,6.576,0.135,65.368,1.542
+fedeita,Mahalanobis,injection,66.413,5.25,10.911,1.349,84.638,3.542
+fedeita,Mahalanobis,ransomware,62.361,1.472,9.744,0.511,74.759,12.622

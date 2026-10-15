@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article."
+title: "Fed-EITA: Uncertainty- and Trust-Aware Federated Intrusion Detection for Zero-Day IoT Threats"
+authors:
+  - family-names: Kaymih
+    given-names: Nour A.
+  - family-names: Ali
+    given-names: Yazan Adnan Mohd
+  - family-names: Bany Salameh
+    given-names: Haythem A.
+license: MIT
+repository-code: "https://github.com/202510056/fed-eita-revision"

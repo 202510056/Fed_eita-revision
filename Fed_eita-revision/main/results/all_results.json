@@ -1,0 +1,284 @@
+{
+  "backend": "xgboost",
+  "quick": false,
+  "seeds": [
+    42,
+    7,
+    13,
+    99,
+    2024,
+    1,
+    3,
+    5,
+    11,
+    17
+  ],
+  "n_clients": 5,
+  "n_estimators": {
+    "main": 25,
+    "noniid": 15,
+    "ood": 20,
+    "edge": 12
+  },
+  "trust_rounds": 20,
+  "alpha_entropy": 0.6,
+  "w_mahal": 0.3,
+  "trust_lambda": 0.3,
+  "trust_weights": {
+    "acc": 0.4,
+    "one_minus_anomaly": 0.35,
+    "participation": 0.15,
+    "consistency": 0.1
+  },
+  "tau_percentile": 75,
+  "noise_rates": {
+    "2": 0.15,
+    "3": 0.12
+  },
+  "noisy_clients": [
+    3,
+    4
+  ],
+  "val_frac": 0.1,
+  "ood_classes": [
+    "ransomware",
+    "backdoor",
+    "injection"
+  ],
+  "leakfree_preprocessing": true,
+  "ton_selected_features": [
+    [
+      "src_ip_bytes",
+      1.0339569820139998
+    ],
+    [
+      "dst_port",
+      0.888283245328295
+    ],
+    [
+      "dst_ip_bytes",
+      0.752069896361856
+    ],
+    [
+      "src_port",
+      0.6419032996099929
+    ],
+    [
+      "conn_state",
+      0.5945700859400531
+    ],
+    [
+      "duration",
+      0.4921426976111145
+    ],
+    [
+      "dst_bytes",
+      0.40523309387090056
+    ],
+    [
+      "src_bytes",
+      0.39566501244225627
+    ],
+    [
+      "dst_pkts",
+      0.32163503283224393
+    ],
+    [
+      "src_pkts",
+      0.3065928323621838
+    ],
+    [
+      "service",
+      0.2043320008832561
+    ],
+    [
+      "proto",
+      0.16105720477307983
+    ],
+    [
+      "dns_qtype",
+      0.07709882596560602
+    ],
+    [
+      "dns_qclass",
+      0.05714444505525895
+    ],
+    [
+      "dns_rcode",
+      0.023761332430798365
+    ]
+  ],
+  "ton_ood_selected_features": [
+    [
+      "src_ip_bytes",
+      0.7667543013594575
+    ],
+    [
+      "dst_port",
+      0.6118165197743795
+    ],
+    [
+      "dst_ip_bytes",
+      0.5285344795873474
+    ],
+    [
+      "conn_state",
+      0.44665749998908666
+    ],
+    [
+      "src_port",
+      0.43644108015998984
+    ],
+    [
+      "duration",
+      0.3136665178611804
+    ],
+    [
+      "dst_bytes",
+      0.270150178085121
+    ],
+    [
+      "src_bytes",
+      0.26144037475790527
+    ],
+    [
+      "src_pkts",
+      0.21288213247143717
+    ],
+    [
+      "dst_pkts",
+      0.20008014128998997
+    ],
+    [
+      "service",
+      0.1183837837563051
+    ],
+    [
+      "proto",
+      0.11001628993288115
+    ],
+    [
+      "dns_qtype",
+      0.05168945365574906
+    ],
+    [
+      "dns_qclass",
+      0.035619886779508114
+    ],
+    [
+      "dns_rcode",
+      0.024073591048774157
+    ]
+  ],
+  "edge_selected_features": [
+    [
+      "tcp.dstport",
+      1.4043120508316664
+    ],
+    [
+      "tcp.srcport",
+      1.3374913789494522
+    ],
+    [
+      "tcp.ack",
+      1.3147814332690628
+    ],
+    [
+      "tcp.seq",
+      1.0086606604092512
+    ],
+    [
+      "tcp.ack_raw",
+      0.8363227927166621
+    ],
+    [
+      "tcp.flags",
+      0.8071452026098997
+    ],
+    [
+      "tcp.len",
+      0.6703738864635964
+    ],
+    [
+      "tcp.checksum",
+      0.4443128120171016
+    ],
+    [
+      "dns.qry.name.len",
+      0.4379949568521968
+    ],
+    [
+      "mqtt.conack.flags",
+      0.42865347904088
+    ],
+    [
+      "mqtt.msg",
+      0.4250544393434339
+    ],
+    [
+      "arp.src.proto_ipv4",
+      0.33972120774481684
+    ],
+    [
+      "icmp.checksum",
+      0.31154487958861754
+    ],
+    [
+      "udp.stream",
+      0.31057796813172844
+    ],
+    [
+      "icmp.seq_le",
+      0.3015134790576739
+    ]
+  ],
+  "runtime_mean": {
+    "seed": {
+      "Edge-IIoT": 222.2,
+      "TON-IoT": 222.2
+    },
+    "local_training_s": {
+      "Edge-IIoT": 0.6264,
+      "TON-IoT": 3.0579
+    },
+    "trust_and_uncertainty_s": {
+      "Edge-IIoT": 0.0904,
+      "TON-IoT": 0.551
+    },
+    "infer_fedavg_ms_per_1k": {
+      "Edge-IIoT": 8.1841,
+      "TON-IoT": 10.4166
+    },
+    "infer_fedeita_ms_per_1k": {
+      "Edge-IIoT": 23.1908,
+      "TON-IoT": 26.4466
+    }
+  },
+  "communication_mean": {
+    "seed": {
+      "Edge-IIoT": 222.2,
+      "TON-IoT": 222.2
+    },
+    "client_model_bytes_mean": {
+      "Edge-IIoT": 307663.1,
+      "TON-IoT": 657123.4
+    },
+    "client_model_bytes_total": {
+      "Edge-IIoT": 1538315.7,
+      "TON-IoT": 3285617.1
+    },
+    "trust_scalars_bytes_per_client_per_round": {
+      "Edge-IIoT": 24.0,
+      "TON-IoT": 24.0
+    },
+    "fedavg_upload_total_bytes": {
+      "Edge-IIoT": 1538315.7,
+      "TON-IoT": 3285617.1
+    },
+    "fedeita_upload_total_bytes": {
+      "Edge-IIoT": 1540715.7,
+      "TON-IoT": 3288017.1
+    }
+  },
+  "total_runtime_min": 3.18
+}

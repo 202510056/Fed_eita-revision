@@ -1,0 +1,76 @@
+Assembly checks run on 2026-10-13T14:02Z when the repository was reorganized.
+
+1. Result files: SHA-256 of original vs. reorganized location
+   identical  results/SUMMARY.md
+   identical  results/SUMMARY_ablation.md
+   identical  results/SUMMARY_additions.md
+   identical  results/ablation_per_seed.csv
+   identical  results/ablation_stats.csv
+   identical  results/ablation_summary.csv
+   identical  results/add_A_robust_per_seed.csv
+   identical  results/add_A_robust_summary.csv
+   identical  results/add_A_stats.csv
+   identical  results/add_B_rotation_per_seed.csv
+   identical  results/add_B_rotation_summary.csv
+   identical  results/all_results.json
+   identical  results/r1_ood_per_class.csv
+   identical  results/r1_ood_per_class_per_seed.csv
+   identical  results/r1_ood_per_seed.csv
+   identical  results/r1_ood_summary.csv
+   identical  results/r2_aggregation_per_seed.csv
+   identical  results/r2_aggregation_summary.csv
+   identical  results/r2_trust_weights_per_seed.csv
+   identical  results/r3_communication_per_seed.csv
+   identical  results/r3_runtime_per_seed.csv
+   identical  results/r3_stats.csv
+   identical  results/run_log.txt
+   identical  results/run_log_ablation.txt
+   identical  results/run_log_additions.txt
+   identical  results/run_log_verify.txt
+   identical  results/verify_sufficient_statistics.txt
+   identical  results_legacy/SUMMARY.md
+   identical  results_legacy/SUMMARY_additions.md
+   identical  results_legacy/add_A_robust_per_seed.csv
+   identical  results_legacy/add_A_robust_summary.csv
+   identical  results_legacy/add_A_stats.csv
+   identical  results_legacy/add_B_rotation_per_seed.csv
+   identical  results_legacy/add_B_rotation_summary.csv
+   identical  results_legacy/all_results.json
+   identical  results_legacy/r1_ood_per_class.csv
+   identical  results_legacy/r1_ood_per_class_per_seed.csv
+   identical  results_legacy/r1_ood_per_seed.csv
+   identical  results_legacy/r1_ood_summary.csv
+   identical  results_legacy/r2_aggregation_per_seed.csv
+   identical  results_legacy/r2_aggregation_summary.csv
+   identical  results_legacy/r2_trust_weights_per_seed.csv
+   identical  results_legacy/r3_communication_per_seed.csv
+   identical  results_legacy/r3_runtime_per_seed.csv
+   identical  results_legacy/r3_stats.csv
+   identical  results_legacy/run_log.txt
+   identical  results_legacy/run_log_additions.txt
+   identical  results_legacy/verify_sufficient_statistics.txt
+
+2. Source code: AST comparison (docstrings and comments ignored)
+   IDENTICAL CODE: src/fed_eita_revision_experiments.py
+   IDENTICAL CODE: src/fed_eita_revision_additions.py
+   IDENTICAL CODE: src/fed_eita_trust_ablation.py
+   IDENTICAL CODE: src/verify_sufficient_statistics.py
+   IDENTICAL CODE: src/leakfree_prep.py
+   CODE DIFFERS:   src/make_tables.py
+   (make_tables.py: input/output paths changed by design; its outputs are checked in step 3)
+
+3. Tables regenerated from the reorganized results
+   main/tables/paper_tables.tex           identical
+   main/tables/statistics_main.csv        identical
+   main/tables/tables.json                identical
+   supplementary/tables/paper_tables.tex           identical
+   supplementary/tables/statistics_ablation.csv    identical
+   supplementary/tables/statistics_robust.csv      identical
+   supplementary/tables/tables.json                identical
+ TABLES REPRODUCED EXACTLY
+
+4. Reorganized tables vs. tables of the pre-restructuring package
+   all 13 tables (values, headers): identical
+   statistics_all.csv = statistics_main.csv + statistics_robust.csv: identical
+   statistics_ablation.csv: identical
+   LaTeX table blocks: identical

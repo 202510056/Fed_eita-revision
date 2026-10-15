@@ -1,0 +1,136 @@
+==============================================================================
+Fed-EITA revision experiments | backend=xgboost | seeds=10 | QUICK=False FAST=False LEAKFREE=True TRUST_ENERGY=margin
+==============================================================================
+TON-IoT: 461,043 rows, 10 classes | train=290,457 server-val=32,273 test=138,313 (11.0s)
+
+──────────────────────────────────────────────────────────────────────────────
+R1  OOD / zero-day (3 attack families withheld from training)
+──────────────────────────────────────────────────────────────────────────────
+  ID train=252,657  ID val=28,073  ID test=120,313  OOD test pool=18,000  (OOD samples never used for fitting anything)
+  seed=42    fused AUROC=90.90  AUPR=73.63  FPR@95=45.55  ID-acc=98.95  (3.2s)
+  seed=7     fused AUROC=90.57  AUPR=64.12  FPR@95=35.38  ID-acc=98.94  (2.9s)
+  seed=13    fused AUROC=88.69  AUPR=65.19  FPR@95=35.23  ID-acc=98.70  (2.8s)
+  seed=99    fused AUROC=88.14  AUPR=59.93  FPR@95=28.17  ID-acc=98.98  (2.9s)
+  seed=2024  fused AUROC=89.70  AUPR=64.45  FPR@95=25.58  ID-acc=99.09  (3.1s)
+  seed=1     fused AUROC=84.78  AUPR=61.83  FPR@95=66.06  ID-acc=98.50  (2.9s)
+  seed=3     fused AUROC=92.21  AUPR=69.76  FPR@95=35.05  ID-acc=98.83  (3.0s)
+  seed=5     fused AUROC=85.81  AUPR=57.17  FPR@95=45.65  ID-acc=98.92  (2.9s)
+  seed=11    fused AUROC=93.17  AUPR=68.63  FPR@95=25.74  ID-acc=98.92  (2.9s)
+  seed=17    fused AUROC=89.96  AUPR=66.36  FPR@95=39.53  ID-acc=99.12  (3.0s)
+                                  auroc           aupr  ...   fpr95  id_acc       
+                                   mean    std    mean  ...     std    mean    std
+score                                                   ...                       
+Energy (margin, Eq. 9)           88.111  4.472  65.040  ...  16.727  98.896  0.184
+Energy (prob., as implemented)   50.288  1.273  20.268  ...   0.024  98.896  0.184
+Entropy                          90.306  2.396  68.946  ...   9.888  98.896  0.184
+Equal-weight fusion (H,E,M)      88.848  2.806  63.393  ...  11.321  98.896  0.184
+Fed-EITA fused (as implemented)  88.835  2.376  60.665  ...  12.152  98.896  0.184
+Fed-EITA fused (margin energy)   89.393  2.634  65.106  ...  12.154  98.896  0.184
+MSP                              90.012  2.658  67.446  ...  11.026  98.896  0.184
+Mahalanobis                      56.825  2.425  20.879  ...   8.431  98.896  0.184
+
+[8 rows x 8 columns]
+
+──────────────────────────────────────────────────────────────────────────────
+R2  Aggregation comparison (trust signals computed, same test subset)
+──────────────────────────────────────────────────────────────────────────────
+  TON-IoT   α=0.1  seed=42    Fed-EITA=83.375  FedAvg=84.460  (2.1s)
+  TON-IoT   α=0.1  seed=7     Fed-EITA=93.425  FedAvg=82.480  (2.4s)
+  TON-IoT   α=0.1  seed=13    Fed-EITA=71.915  FedAvg=79.615  (2.1s)
+  TON-IoT   α=0.1  seed=99    Fed-EITA=94.390  FedAvg=84.115  (2.2s)
+  TON-IoT   α=0.1  seed=2024  Fed-EITA=92.175  FedAvg=88.495  (2.4s)
+  TON-IoT   α=0.1  seed=1     Fed-EITA=63.070  FedAvg=79.565  (2.3s)
+  TON-IoT   α=0.1  seed=3     Fed-EITA=90.305  FedAvg=89.730  (2.2s)
+  TON-IoT   α=0.1  seed=5     Fed-EITA=85.630  FedAvg=89.435  (2.3s)
+  TON-IoT   α=0.1  seed=11    Fed-EITA=89.745  FedAvg=93.775  (2.3s)
+  TON-IoT   α=0.1  seed=17    Fed-EITA=93.420  FedAvg=85.725  (3.0s)
+  TON-IoT   α=0.3  seed=42    Fed-EITA=97.800  FedAvg=97.005  (2.4s)
+  TON-IoT   α=0.3  seed=7     Fed-EITA=98.210  FedAvg=98.160  (2.3s)
+  TON-IoT   α=0.3  seed=13    Fed-EITA=97.390  FedAvg=95.760  (2.6s)
+  TON-IoT   α=0.3  seed=99    Fed-EITA=97.285  FedAvg=92.450  (2.4s)
+  TON-IoT   α=0.3  seed=2024  Fed-EITA=98.490  FedAvg=98.150  (2.4s)
+  TON-IoT   α=0.3  seed=1     Fed-EITA=98.450  FedAvg=94.140  (2.3s)
+  TON-IoT   α=0.3  seed=3     Fed-EITA=98.335  FedAvg=80.965  (2.5s)
+  TON-IoT   α=0.3  seed=5     Fed-EITA=98.370  FedAvg=97.340  (2.5s)
+  TON-IoT   α=0.3  seed=11    Fed-EITA=98.455  FedAvg=85.415  (2.3s)
+  TON-IoT   α=0.3  seed=17    Fed-EITA=97.960  FedAvg=89.650  (3.0s)
+  TON-IoT   α=0.5  seed=42    Fed-EITA=98.700  FedAvg=98.560  (5.4s)
+  TON-IoT   α=0.5  seed=7     Fed-EITA=98.720  FedAvg=98.755  (5.8s)
+  TON-IoT   α=0.5  seed=13    Fed-EITA=98.720  FedAvg=98.740  (5.7s)
+  TON-IoT   α=0.5  seed=99    Fed-EITA=98.840  FedAvg=94.500  (4.8s)
+  TON-IoT   α=0.5  seed=2024  Fed-EITA=98.915  FedAvg=98.890  (4.4s)
+  TON-IoT   α=0.5  seed=1     Fed-EITA=98.775  FedAvg=98.790  (4.3s)
+  TON-IoT   α=0.5  seed=3     Fed-EITA=98.775  FedAvg=89.305  (4.8s)
+  TON-IoT   α=0.5  seed=5     Fed-EITA=98.380  FedAvg=98.370  (4.4s)
+  TON-IoT   α=0.5  seed=11    Fed-EITA=98.805  FedAvg=98.800  (4.9s)
+  TON-IoT   α=0.5  seed=17    Fed-EITA=98.730  FedAvg=98.145  (4.9s)
+  TON-IoT   α=1.0  seed=42    Fed-EITA=98.475  FedAvg=98.245  (3.2s)
+  TON-IoT   α=1.0  seed=7     Fed-EITA=98.175  FedAvg=98.010  (3.1s)
+  TON-IoT   α=1.0  seed=13    Fed-EITA=98.125  FedAvg=98.105  (3.1s)
+  TON-IoT   α=1.0  seed=99    Fed-EITA=98.580  FedAvg=98.080  (3.3s)
+  TON-IoT   α=1.0  seed=2024  Fed-EITA=98.505  FedAvg=98.305  (2.9s)
+  TON-IoT   α=1.0  seed=1     Fed-EITA=98.520  FedAvg=98.375  (2.6s)
+  TON-IoT   α=1.0  seed=3     Fed-EITA=98.435  FedAvg=98.050  (2.5s)
+  TON-IoT   α=1.0  seed=5     Fed-EITA=98.255  FedAvg=98.145  (2.7s)
+  TON-IoT   α=1.0  seed=11    Fed-EITA=98.610  FedAvg=98.450  (2.5s)
+  TON-IoT   α=1.0  seed=17    Fed-EITA=97.965  FedAvg=97.845  (2.6s)
+  Edge-IIoT: 60,000 rows, 15 classes
+  Edge-IIoT α=0.5  seed=42    Fed-EITA=91.583  FedAvg=91.611  (1.3s)
+  Edge-IIoT α=0.5  seed=7     Fed-EITA=90.378  FedAvg=91.761  (1.4s)
+  Edge-IIoT α=0.5  seed=13    Fed-EITA=90.083  FedAvg=90.244  (1.5s)
+  Edge-IIoT α=0.5  seed=99    Fed-EITA=91.439  FedAvg=91.761  (1.7s)
+  Edge-IIoT α=0.5  seed=2024  Fed-EITA=90.667  FedAvg=90.617  (1.5s)
+  Edge-IIoT α=0.5  seed=1     Fed-EITA=90.122  FedAvg=90.622  (1.4s)
+  Edge-IIoT α=0.5  seed=3     Fed-EITA=90.989  FedAvg=91.239  (1.3s)
+  Edge-IIoT α=0.5  seed=5     Fed-EITA=90.522  FedAvg=91.872  (1.4s)
+  Edge-IIoT α=0.5  seed=11    Fed-EITA=90.939  FedAvg=89.767  (1.4s)
+  Edge-IIoT α=0.5  seed=17    Fed-EITA=83.239  FedAvg=81.689  (1.6s)
+
+──────────────────────────────────────────────────────────────────────────────
+R3  Paired statistics (Fed-EITA vs each comparator, Holm-corrected)
+──────────────────────────────────────────────────────────────────────────────
+         family                                             comparison metric  mean_diff  ci95_low  ci95_high  cohen_dz  p_wilcoxon_holm
+Edge-IIoT α=0.5                     Fed-EITA vs FedAvg (size-weighted)    acc   -0.12222  -0.64722    0.43890  -0.13121          0.86328
+Edge-IIoT α=0.5                     Fed-EITA vs FedAvg (size-weighted)     f1   -0.24452  -0.69354    0.15150  -0.33761          0.86328
+Edge-IIoT α=0.5                          Fed-EITA vs Uniform averaging    acc    0.14278   0.05667    0.24722   0.88092          0.03516
+Edge-IIoT α=0.5                          Fed-EITA vs Uniform averaging     f1    0.07655   0.03446    0.12244   1.01221          0.04883
+Edge-IIoT α=0.5          Fed-EITA vs Drift-weighted (FedProx-inspired)    acc    0.11167   0.02333    0.23500   0.58467          0.05469
+Edge-IIoT α=0.5          Fed-EITA vs Drift-weighted (FedProx-inspired)     f1    0.05116   0.01936    0.08761   0.87178          0.05469
+  TON-IoT α=0.1                     Fed-EITA vs FedAvg (size-weighted)    acc    0.00550  -5.22752    4.87161   0.00064          1.00000
+  TON-IoT α=0.1                     Fed-EITA vs FedAvg (size-weighted)     f1    3.05044  -2.37375    8.80495   0.31356          1.00000
+  TON-IoT α=0.1                          Fed-EITA vs Uniform averaging    acc    4.99800   0.15645   10.31401   0.58590          1.00000
+  TON-IoT α=0.1                          Fed-EITA vs Uniform averaging     f1    3.37972  -0.63773    7.64203   0.47221          1.00000
+  TON-IoT α=0.1          Fed-EITA vs Drift-weighted (FedProx-inspired)    acc    9.32050   1.82940   17.46800   0.70678          1.00000
+  TON-IoT α=0.1          Fed-EITA vs Drift-weighted (FedProx-inspired)     f1    8.89487   1.00587   18.24221   0.60161          1.00000
+  TON-IoT α=0.3                     Fed-EITA vs FedAvg (size-weighted)    acc    5.17100   2.01026    8.91904   0.86742          0.01172
+  TON-IoT α=0.3                     Fed-EITA vs FedAvg (size-weighted)     f1    7.22860   2.52784   12.72630   0.83075          0.01172
+  TON-IoT α=0.3                          Fed-EITA vs Uniform averaging    acc   -0.08550  -0.22801    0.05250  -0.35628          0.81250
+  TON-IoT α=0.3                          Fed-EITA vs Uniform averaging     f1   -0.09589  -0.25612    0.05673  -0.36367          0.81250
+  TON-IoT α=0.3          Fed-EITA vs Drift-weighted (FedProx-inspired)    acc   -0.02200  -0.16000    0.11250  -0.09495          1.00000
+  TON-IoT α=0.3          Fed-EITA vs Drift-weighted (FedProx-inspired)     f1   -0.02758  -0.17538    0.11144  -0.11389          1.00000
+  TON-IoT α=0.5                     Fed-EITA vs FedAvg (size-weighted)    acc    1.45050   0.03499    3.46551   0.46429          0.16016
+  TON-IoT α=0.5                     Fed-EITA vs FedAvg (size-weighted)     f1    1.99155   0.05928    5.08065   0.46878          0.05469
+  TON-IoT α=0.5                          Fed-EITA vs Uniform averaging    acc   -0.03700  -0.05500   -0.02150  -1.32576          0.02344
+  TON-IoT α=0.5                          Fed-EITA vs Uniform averaging     f1   -0.04246  -0.05941   -0.02657  -1.50330          0.02344
+  TON-IoT α=0.5          Fed-EITA vs Drift-weighted (FedProx-inspired)    acc   -0.03600  -0.04800   -0.02300  -1.67851          0.02344
+  TON-IoT α=0.5          Fed-EITA vs Drift-weighted (FedProx-inspired)     f1   -0.04207  -0.05595   -0.02820  -1.77069          0.02344
+  TON-IoT α=1.0                     Fed-EITA vs FedAvg (size-weighted)    acc    0.20350   0.12850    0.29250   1.44803          0.01172
+  TON-IoT α=1.0                     Fed-EITA vs FedAvg (size-weighted)     f1    0.21889   0.13309    0.32027   1.34916          0.01172
+  TON-IoT α=1.0                          Fed-EITA vs Uniform averaging    acc   -0.02400  -0.05300    0.00750  -0.47694          0.52344
+  TON-IoT α=1.0                          Fed-EITA vs Uniform averaging     f1   -0.02748  -0.05777    0.00528  -0.50093          0.52344
+  TON-IoT α=1.0          Fed-EITA vs Drift-weighted (FedProx-inspired)    acc   -0.02650  -0.05700    0.00450  -0.51368          0.52344
+  TON-IoT α=1.0          Fed-EITA vs Drift-weighted (FedProx-inspired)     f1   -0.02986  -0.06130    0.00443  -0.53169          0.52344
+    TON-IoT OOD                         Fused (trust) vs MSP (fedeita)  auroc   -0.61902  -1.29004   -0.10117  -0.60233          0.39062
+    TON-IoT OOD                         Fused (trust) vs MSP (fedeita)  fpr95    0.31700  -3.27817    3.35659   0.05615          1.00000
+    TON-IoT OOD                          Fused (trust) vs MSP (fedavg)  auroc    1.20811  -0.38780    2.75381   0.45068          1.00000
+    TON-IoT OOD                          Fused (trust) vs MSP (fedavg)  fpr95   -0.45900  -7.33959    7.28401  -0.03618          1.00000
+    TON-IoT OOD                     Fused (trust) vs Entropy (fedeita)  auroc   -0.91323  -1.46143   -0.39938  -1.01907          0.08789
+    TON-IoT OOD                     Fused (trust) vs Entropy (fedeita)  fpr95    0.43850  -1.92901    2.90562   0.10625          1.00000
+    TON-IoT OOD      Fused (trust) vs Energy (margin, Eq. 9) (fedeita)  auroc    1.28214  -0.27513    3.63190   0.36142          1.00000
+    TON-IoT OOD      Fused (trust) vs Energy (margin, Eq. 9) (fedeita)  fpr95   -4.15000 -16.61588    3.69010  -0.21760          1.00000
+    TON-IoT OOD                 Fused (trust) vs Mahalanobis (fedeita)  auroc   32.56791  31.08055   34.55641  10.76952          0.02344
+    TON-IoT OOD                 Fused (trust) vs Mahalanobis (fedeita)  fpr95  -37.47450 -45.63010  -29.79696  -2.82628          0.02344
+    TON-IoT OOD Fused (trust) vs Equal-weight fusion (H,E,M) (fedeita)  auroc    0.54502   0.14866    1.19082   0.56477          0.02344
+    TON-IoT OOD Fused (trust) vs Equal-weight fusion (H,E,M) (fedeita)  fpr95   -1.84250  -5.69856    0.36601  -0.31269          1.00000
+
+Done in 3.2 min → results_timing_rerun/

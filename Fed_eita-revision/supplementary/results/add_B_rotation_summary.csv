@@ -1,0 +1,43 @@
+,,,auroc,auroc,aupr,aupr,fpr95,fpr95,id_acc,id_acc
+,,,mean,std,mean,std,mean,std,mean,std
+held_out,aggregation,score,,,,,,,,
+all three,fedavg,Energy (Eq. 9),88.806,2.588,65.609,11.18,36.528,4.179,97.118,3.029
+all three,fedavg,Entropy,89.21,1.672,65.348,4.85,38.16,3.164,97.118,3.029
+all three,fedavg,Equal-weight fusion,88.052,2.144,60.746,7.179,40.685,4.47,97.118,3.029
+all three,fedavg,Fed-EITA fusion,88.398,2.003,62.463,6.418,40.088,3.524,97.118,3.029
+all three,fedavg,MSP,88.185,2.416,60.919,8.541,38.654,4.063,97.118,3.029
+all three,fedeita,Energy (Eq. 9),88.111,4.472,65.04,9.719,42.345,16.727,98.896,0.184
+all three,fedeita,Entropy,90.306,2.396,68.946,4.032,37.756,9.888,98.896,0.184
+all three,fedeita,Equal-weight fusion,88.848,2.806,63.393,5.529,40.038,11.321,98.896,0.184
+all three,fedeita,Fed-EITA fusion,89.393,2.634,65.106,4.833,38.195,12.154,98.896,0.184
+all three,fedeita,MSP,90.012,2.658,67.446,5.688,37.878,11.026,98.896,0.184
+backdoor,fedavg,Energy (Eq. 9),78.976,27.437,51.857,24.424,29.235,33.534,97.786,0.844
+backdoor,fedavg,Entropy,88.757,5.981,55.263,15.012,18.134,9.555,97.786,0.844
+backdoor,fedavg,Equal-weight fusion,84.582,11.598,48.976,18.43,22.806,15.814,97.786,0.844
+backdoor,fedavg,Fed-EITA fusion,85.608,10.347,50.282,18.316,21.446,14.19,97.786,0.844
+backdoor,fedavg,MSP,89.863,6.76,57.398,16.958,15.366,9.829,97.786,0.844
+backdoor,fedeita,Energy (Eq. 9),76.539,24.526,45.318,18.979,35.344,32.069,98.634,0.155
+backdoor,fedeita,Entropy,85.064,9.161,51.763,12.322,26.687,17.081,98.634,0.155
+backdoor,fedeita,Equal-weight fusion,79.312,15.957,43.844,14.963,34.169,24.495,98.634,0.155
+backdoor,fedeita,Fed-EITA fusion,80.806,14.11,45.521,14.123,33.012,23.766,98.634,0.155
+backdoor,fedeita,MSP,88.785,5.069,54.812,10.429,19.313,8.883,98.634,0.155
+injection,fedavg,Energy (Eq. 9),98.154,1.205,91.321,6.739,4.868,1.953,98.131,0.837
+injection,fedavg,Entropy,98.878,0.292,91.025,2.383,2.089,0.625,98.131,0.837
+injection,fedavg,Equal-weight fusion,98.257,0.686,87.187,4.019,3.371,1.566,98.131,0.837
+injection,fedavg,Fed-EITA fusion,98.52,0.561,89.22,3.087,3.178,1.473,98.131,0.837
+injection,fedavg,MSP,97.824,0.996,85.908,5.597,4.859,2.627,98.131,0.837
+injection,fedeita,Energy (Eq. 9),97.243,1.028,87.571,4.997,9.434,4.374,98.915,0.107
+injection,fedeita,Entropy,98.879,0.165,91.59,1.874,2.364,0.723,98.915,0.107
+injection,fedeita,Equal-weight fusion,97.978,0.218,85.347,1.868,4.604,1.628,98.915,0.107
+injection,fedeita,Fed-EITA fusion,98.247,0.191,87.269,1.279,3.918,1.403,98.915,0.107
+injection,fedeita,MSP,98.816,0.353,91.915,3.014,2.414,0.551,98.915,0.107
+ransomware,fedavg,Energy (Eq. 9),78.764,2.942,44.122,5.514,45.116,5.412,97.196,3.192
+ransomware,fedavg,Entropy,71.188,2.081,33.013,2.449,53.881,4.957,97.196,3.192
+ransomware,fedavg,Equal-weight fusion,73.076,3.384,34.717,4.133,49.313,1.728,97.196,3.192
+ransomware,fedavg,Fed-EITA fusion,72.408,3.038,34.2,3.801,50.26,2.071,97.196,3.192
+ransomware,fedavg,MSP,69.804,1.928,30.583,2.963,53.753,4.727,97.196,3.192
+ransomware,fedeita,Energy (Eq. 9),80.515,3.253,45.659,5.479,42.146,6.121,98.26,1.042
+ransomware,fedeita,Entropy,74.998,5.037,38.331,5.529,51.98,5.787,98.26,1.042
+ransomware,fedeita,Equal-weight fusion,75.974,4.776,37.817,4.991,47.904,4.967,98.26,1.042
+ransomware,fedeita,Fed-EITA fusion,75.63,4.818,37.943,5.002,49.044,4.871,98.26,1.042
+ransomware,fedeita,MSP,73.731,4.487,35.983,4.915,51.654,5.57,98.26,1.042
