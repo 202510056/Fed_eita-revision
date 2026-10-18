@@ -20,9 +20,9 @@ All scores are computed on the aggregated prediction (S_global, Eq. 17), and hig
 | Mahalanobis M(x), Eq. (10) | min_c (x − μ_c)ᵀ Σ_c⁻¹ (x − μ_c); class statistics from a 1-in-30 subsample of client training rows | `Mahal` |
 | MSP (baseline) | 1 − max_c P_c | `MSP_raw` |
 
-**Normalization.** Each score is mapped to [0, 1] using the 1st and 99th percentiles of its values on the in-distribution validation split (`MinMaxFromVal`). Test and held-out data never enter the normalization.
+**Normalization.** Each score is rescaled linearly so that the 1st and 99th percentiles of its values on the in-distribution validation split map to 0 and 1, (s − q1)/(q99 − q1 + 1e-12) (`MinMaxFromVal`); values outside this range are not clipped. Test and held-out data never enter the normalization.
 
-**Fusion, Eq. (11).** S(x) = 0.7·(0.6·ã + 0.4·Ẽ) + 0.3·M̃, i.e. β = (0.42, 0.28, 0.30), fixed a priori without tuning.
+**Fusion, Eq. (11).** S(x) = 0.7·(0.6·ã + 0.4·Ẽ) + 0.3·M̃, i.e. β = (0.42, 0.28, 0.30): heuristic constants carried over unchanged from the original implementation; no procedure in the original or revised code tunes them.
 
 **Legacy energy.** The original submission computed "energy" from normalized probabilities, which is constant (AUROC ≈ 50%). The columns `Energy (prob., as implemented)` and `Fed-EITA fused (as implemented)` reproduce it for documentation only.
 

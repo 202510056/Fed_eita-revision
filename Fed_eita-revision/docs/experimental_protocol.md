@@ -40,7 +40,7 @@
   - FedAvg: client probabilities and size-weighted average.
   - Fed-EITA: client probabilities and raw margins, trust-weighted aggregation, and the fused score (entropy, energy, Mahalanobis).
   - One-off fitting is excluded, and a 10-flow warm-up is run first. Each value is the median of 5 timed runs per seed; tables report mean ± std over seeds.
-- **Payload (computed, not measured on a network):** serialized booster size per client. Fed-EITA adds three 8-byte trust scalars per client per trust iteration as an upper bound.
+- **Payload (computed, not measured on a network):** serialized booster size per client. Trust is computed on the server, so the protocol requires no trust messages; the Fed-EITA total nevertheless includes a hypothetical allowance of three 8-byte values per client per trust iteration as an upper bound.
 
 ## Hardware and software of the published runs
 

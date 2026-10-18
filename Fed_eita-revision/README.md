@@ -35,7 +35,7 @@ The evaluation was designed to test each claim, and the claims below are the one
 | Supported finding | Evidence |
 |---|---|
 | Trust identifies label-noisy clients without being told which they are | Noisy clients get anomaly rates 0.998 and 0.733 (clean: 0.093–0.110) and the two lowest weights (0.151, 0.172 vs. 0.225–0.227), although their validation accuracy is indistinguishable (Table R5) |
-| Trust weighting removes the instability of sample-size weighting (FedAvg) under non-IID data | α_D = 0.3: 98.07 ± 0.43% vs. FedAvg 92.90 ± 5.57% (Wilcoxon, Holm-adjusted p = 0.012); α_D = 1.0: +0.20 points (t-test, Holm-adjusted p = 0.008) (Tables R3, R6) |
+| Trust weighting reduces the instability of sample-size weighting (FedAvg) under moderately non-IID data (α_D = 0.3–0.5); at α_D = 0.1 both rules remain unstable | α_D = 0.3: 98.07 ± 0.43% vs. FedAvg 92.90 ± 5.57% (Wilcoxon, Holm-adjusted p = 0.012); α_D = 1.0: +0.20 points (t-test, Holm-adjusted p = 0.008) (Tables R3, R6) |
 | Zero-day detection with the fused score | AUROC 89.39 ± 2.50%, FPR@95 38.19% with trust aggregation (Table R1) |
 | More accurate than Krum-based aggregation under label noise | Severe noise: 98.83% vs. Krum 95.99% and Multi-Krum 98.22% (not significant after Holm correction) (Table R10) |
 | Federated estimation of the Mahalanobis term is exact | Aggregated per-client sufficient statistics reproduce the pooled class means and covariances to machine precision (7.6 KB per client) |
@@ -45,7 +45,7 @@ The evaluation was designed to test each claim, and the claims below are the one
 These results are reported in the manuscript and are stated here with equal prominence:
 
 - **Trust weighting does not universally outperform uniform averaging.** Closed-set accuracy is essentially that of uniform averaging (98.74% vs. 98.77% at α_D = 0.5; the difference is small but significant after Holm correction).
-- **The full fusion does not outperform entropy alone** (89.39% vs. 90.31% AUROC), and Trimmed mean attains a slightly higher zero-day AUROC (89.56%); neither difference is significant.
+- **The full fusion does not outperform entropy alone** (89.39% vs. 90.31% AUROC), and Trimmed mean attains a slightly higher zero-day AUROC (89.56%). The entropy advantage (0.91 points) is significant by the Holm-adjusted Wilcoxon test (p = 0.049) but not by the Holm-adjusted paired t-test (p = 0.063); the trimmed-mean advantage is not significant.
 - **The trust memory (λ) has no measurable benefit** under the one-shot protocol (Table R13), because client models do not change between trust iterations.
 - **Most of the zero-day gain of trust over uniform averaging comes from the accuracy component** (accuracy-only trust: 89.44% AUROC vs. 89.39% for full trust; Table R13).
 - **Edge-IIoT shows no advantage** over FedAvg (90.00% vs. 90.12%, not significant).
@@ -104,6 +104,16 @@ See [`docs/reproducibility.md`](docs/reproducibility.md) for the environment, ex
 
 ## Main results (TON-IoT, three attack families held out, 10 seeds)
 
+**Where these numbers come from.** None of the values below is typed by hand. They are copied from `supplementary/tables/tables.json`, which `src/make_tables.py` generates from the per-seed result files (`supplementary/results/add_A_robust_per_seed.csv`). Those files were written by `src/fed_eita_revision_additions.py`; the console output of the run is in `supplementary/results/run_log_additions.txt` and that of the main experiment in `main/results/run_log.txt`. To check them yourself:
+
+```bash
+python verification/integrity_checks/verify_checksums.py   # published result files are unchanged
+python verification/integrity_checks/check_tables.py       # tables regenerate exactly from the per-seed files
+bash supplementary/run_supplementary.sh                     # full re-run (datasets required); compared automatically
+```
+
+An independent re-execution of both packages reproduced every non-timing result file exactly. Supplementary Table S6 of the paper is the mean and population standard deviation of `main/results/r1_ood_per_seed.csv`; the payload figures are serialized sizes, not network measurements.
+
 | Aggregation | Accuracy, moderate noise (%) | Zero-day AUROC, moderate (%) | Accuracy, severe noise (%) | Zero-day AUROC, severe (%) |
 |---|---|---|---|---|
 | FedAvg | 97.12 ± 2.87 | 88.40 ± 1.90 | 96.74 ± 3.14 | 87.55 ± 2.19 |
@@ -121,8 +131,12 @@ Mean ± population standard deviation over ten seeds. All rules aggregate the sa
 - Federated clients are **simulated on a single machine**; there is no real network.
 - **Communication costs are computed from serialized payload sizes**, not measured on a network.
 - The threat model covers **label-noisy (unreliable) clients only**; targeted poisoning, backdoors, collusion and adaptive attacks were not evaluated, and the trust score is not a defence against them.
-- No formal privacy guarantee: raw traffic stays local, but uploaded boosters may leak information; neither differential privacy nor secure aggregation is implemented.
-- The train/test split is stratified random, not temporal or device-disjoint, and duplicate flows were not removed.
+- No formal privacy guarantee: raw traffic stays local, but uploaded boosters and the per-class statistics of the Mahalanobis term may leak information about local data; neither differential privacy nor secure aggregation is implemented.
+- The train/test split is stratified random, not temporal or device-disjoint, and duplicate flows were not removed. On the 15 selected features, 29.9% of the TON-IoT test flows (32.3% of the in-distribution test flows in the zero-day setting) and 3.0% of the Edge-IIoT test flows have an exact duplicate among the client-training flows, so closed-set accuracies are likely optimistic for unseen deployments. This is a feature-level overlap: on all raw columns, about 2.8% of the TON-IoT test flows are exact copies of a training flow. Both rates come from an independent audit of the data, not from the scripts in this repository, and no re-evaluation on the non-overlapping flows was performed.
+- Client partitions are disjoint except for a small cross-client duplication: a client lacking a class receives a copy of one training sample of it (class completion, `ensure_all_classes`); in the TON-IoT runs at most 12 of the 290,457 training rows are placed in two clients.
+- Label noise replaces 15%/12% (or 40%/40%) of the labels by uniformly drawn labels; because a drawn label can equal the original one, the fraction of labels that actually change is lower by the factor 1 − 1/C (13.5%/10.8% on TON-IoT).
+- The operating threshold τ_zd and the rule-based explanation interface (Eqs. 19–20 of the manuscript) are not part of the released experiment code; no reported metric depends on them.
+- The drift-weighted rule is labelled "Drift-weighted (FedProx-inspired)" in `main/results/r3_stats.csv` and `SUMMARY.md` for historical reasons; it is not FedProx; it is equivalent to one reweighting step of the simple γ-mean of Li et al. (2022), see `verification/README.md`. The published files are left unchanged so that their checksums remain valid.
 - Edge-IIoT is an independent replication on a 60,000-flow subset, not a cross-dataset transfer.
 
 ## Verification

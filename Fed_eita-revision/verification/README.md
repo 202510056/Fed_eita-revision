@@ -20,3 +20,11 @@ Tools that let a reader check the published numbers without trusting the authors
 ## Logs
 
 Each `run_log*.txt` starts with the configuration of the run: backend `xgboost`, number of seeds, `LEAKFREE=True`, `TRUST_ENERGY=margin`. Dataset sizes are given in the next lines (TON-IoT: 461,043 rows; Edge-IIoT: 60,000 rows).
+
+## Drift-weighted rule and the simple γ-mean
+
+`integrity_checks/drift_gamma_mean_equivalence.py` executes the two source lines that define the drift-weighted rule in `src/fed_eita_revision_experiments.py`. It compares them with one reweighting step of the simple γ-mean of Li et al. (Entropy 24(5):686, 2022), started at the arithmetic mean with γ = 20/m, where m is the number of entries of a client's flattened validation prediction matrix. Across 100 random configurations the weights agree to 5.6 × 10⁻¹⁷.
+
+```bash
+python verification/integrity_checks/drift_gamma_mean_equivalence.py src/fed_eita_revision_experiments.py
+```

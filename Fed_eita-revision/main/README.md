@@ -77,7 +77,7 @@ The comparison requires every non-timing value to match the published files to 1
 |---|---|
 | Accuracy, AUROC, trust weights | computed from real model predictions on real data |
 | Training, trust and inference times | measured wall-clock (`perf_counter`); inference = median of 5 timed runs on 1,000 test flows, mean ± std over seeds |
-| Upload size | computed from the serialized booster size; trust scalars counted as an upper bound |
+| Upload size | computed from the serialized booster size; plus a hypothetical upper-bound allowance for trust-related values (trust is computed on the server, so the protocol itself requires no trust messages) |
 | Federated clients | simulated on one machine |
 
 ## Known limitations
