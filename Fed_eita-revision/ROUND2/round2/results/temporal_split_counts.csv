@@ -1,0 +1,11 @@
+type,train_first_70pct_time,test_last_30pct_time
+normal,224722,75278
+scanning,20000,0
+dos,20000,0
+injection,20000,0
+ddos,20000,0
+password,18042,1958
+xss,0,20000
+ransomware,0,20000
+backdoor,0,20000
+mitm,0,1043
