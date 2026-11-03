@@ -4,6 +4,10 @@
 
 Code, per-seed results and table generator for the **revised manuscript** (submitted to *Cluster Computing*). Every number in the revised manuscript and in the response to the reviewers is produced by the code in `src/` from the result files in this repository.
 
+## Second revision (release v2.0)
+
+The second review round added five evaluations, all run with the published pipeline unchanged (imported, not copied): a label-noise sweep with a noise-free control, an oracle ensemble that excludes the noisy clients, evaluation without training duplicates, a fusion ablation, and a check of temporal and host-disjoint splits. Code, plan, per-seed results and tables are in [`round2/`](round2/README.md); the revised tables report **sample** standard deviations (`src/make_tables_round2.py`). Result-file rows that the manuscript does not use are listed in [`docs/result_columns.md`](docs/result_columns.md). No published file in `main/`, `supplementary/` or `verification/` was changed.
+
 ---
 
 ## Overview
@@ -112,7 +116,7 @@ python verification/integrity_checks/check_tables.py       # tables regenerate e
 bash supplementary/run_supplementary.sh                     # full re-run (datasets required); compared automatically
 ```
 
-An independent re-execution of both packages reproduced every non-timing result file exactly. Supplementary Table S6 of the paper is the mean and population standard deviation of `main/results/r1_ood_per_seed.csv`; the payload figures are serialized sizes, not network measurements.
+An independent re-execution of both packages reproduced every non-timing result file exactly. Appendix Table A6 of the paper is the mean and population standard deviation of `main/results/r1_ood_per_seed.csv`; the payload figures are serialized sizes, not network measurements.
 
 | Aggregation | Accuracy, moderate noise (%) | Zero-day AUROC, moderate (%) | Accuracy, severe noise (%) | Zero-day AUROC, severe (%) |
 |---|---|---|---|---|

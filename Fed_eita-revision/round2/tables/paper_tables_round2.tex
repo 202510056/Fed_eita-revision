@@ -1,0 +1,118 @@
+%% tab:agg
+FedAvg & 85.74 $\pm$ 4.62 & 92.90 $\pm$ 5.88 & 97.29 $\pm$ 3.10 & 98.16 $\pm$ 0.18 & 90.12 $\pm$ 3.05 \\
+Uniform averaging & 80.75 $\pm$ 12.38 & 98.16 $\pm$ 0.38 & 98.77 $\pm$ 0.14 & 98.39 $\pm$ 0.19 & 89.85 $\pm$ 2.56 \\
+Drift-weighted & 76.42 $\pm$ 17.96 & 98.10 $\pm$ 0.49 & 98.77 $\pm$ 0.14 & 98.39 $\pm$ 0.18 & 89.88 $\pm$ 2.60 \\
+\textbf{Fed-EITA (trust)} & \textbf{85.75 $\pm$ 10.44} & \textbf{98.07 $\pm$ 0.45} & \textbf{98.74 $\pm$ 0.14} & \textbf{98.36 $\pm$ 0.22} & \textbf{90.00 $\pm$ 2.43} \\
+
+%% tab:stats_drift_row
+TON-IoT $\alpha_D$ = 0.5 & Fed-EITA vs drift-weighted (Acc) & $-$0.04 & [$-$0.05, $-$0.02] & $-$1.68 & 0.002 & 0.023 \\
+
+%% tab:ablation_main
+Uniform (no trust) & 98.95 $\pm$ 0.17 & 88.85 $\pm$ 3.57 & 88.39 $\pm$ 3.77 & 42.09 $\pm$ 16.57 & 0.200 \\
+Accuracy only & 98.94 $\pm$ 0.18 & 88.83 $\pm$ 3.56 & 89.44 $\pm$ 2.44 & 37.88 $\pm$ 11.83 & 0.202 \\
+Anomaly rate only & 98.04 $\pm$ 1.53 & 85.99 $\pm$ 6.72 & 87.63 $\pm$ 3.70 & 43.38 $\pm$ 11.16 & 0.026 \\
+Accuracy + anomaly rate & 98.87 $\pm$ 0.20 & 88.27 $\pm$ 3.89 & 89.39 $\pm$ 2.72 & 38.61 $\pm$ 11.91 & 0.142 \\
+Full trust, no memory & 98.90 $\pm$ 0.18 & 88.31 $\pm$ 3.83 & 89.39 $\pm$ 2.63 & 38.19 $\pm$ 12.15 & 0.160 \\
+\textbf{Fed-EITA (full trust)} & \textbf{98.90 $\pm$ 0.18} & \textbf{88.31 $\pm$ 3.83} & \textbf{89.39 $\pm$ 2.63} & \textbf{38.19 $\pm$ 12.15} & \textbf{0.160} \\
+FedAvg (reference) & 97.12 $\pm$ 3.03 & 82.86 $\pm$ 11.28 & 88.40 $\pm$ 2.00 & 40.09 $\pm$ 3.52 & 0.184 \\
+
+%% tab:a_ablation
+moderate & Uniform (no trust) & 98.95 $\pm$ 0.17 & 88.85 $\pm$ 3.57 & 88.39 $\pm$ 3.77 & 42.09 $\pm$ 16.57 & 0.200 \\
+moderate & Accuracy only & 98.94 $\pm$ 0.18 & 88.83 $\pm$ 3.56 & 89.44 $\pm$ 2.44 & 37.88 $\pm$ 11.83 & 0.202 \\
+moderate & Anomaly rate only & 98.04 $\pm$ 1.53 & 85.99 $\pm$ 6.72 & 87.63 $\pm$ 3.70 & 43.38 $\pm$ 11.16 & 0.026 \\
+moderate & Accuracy + anomaly rate & 98.87 $\pm$ 0.20 & 88.27 $\pm$ 3.89 & 89.39 $\pm$ 2.72 & 38.61 $\pm$ 11.91 & 0.142 \\
+moderate & Full trust, no memory & 98.90 $\pm$ 0.18 & 88.31 $\pm$ 3.83 & 89.39 $\pm$ 2.63 & 38.19 $\pm$ 12.15 & 0.160 \\
+\textbf{moderate} & \textbf{Fed-EITA (full trust)} & \textbf{98.90 $\pm$ 0.18} & \textbf{88.31 $\pm$ 3.83} & \textbf{89.39 $\pm$ 2.63} & \textbf{38.19 $\pm$ 12.15} & \textbf{0.160} \\
+moderate & FedAvg (reference) & 97.12 $\pm$ 3.03 & 82.86 $\pm$ 11.28 & 88.40 $\pm$ 2.00 & 40.09 $\pm$ 3.52 & 0.184 \\
+\midrule
+severe & Uniform (no trust) & 98.89 $\pm$ 0.19 & 88.36 $\pm$ 3.58 & 87.18 $\pm$ 4.59 & 47.41 $\pm$ 15.63 & 0.200 \\
+severe & Accuracy only & 98.86 $\pm$ 0.21 & 88.36 $\pm$ 3.65 & 88.63 $\pm$ 2.44 & 43.03 $\pm$ 11.92 & 0.199 \\
+severe & Anomaly rate only & 98.53 $\pm$ 0.63 & 87.48 $\pm$ 4.20 & 86.67 $\pm$ 5.44 & 44.79 $\pm$ 13.81 & 0.017 \\
+severe & Accuracy + anomaly rate & 98.80 $\pm$ 0.25 & 87.99 $\pm$ 3.89 & 88.49 $\pm$ 2.85 & 42.18 $\pm$ 10.58 & 0.134 \\
+severe & Full trust, no memory & 98.83 $\pm$ 0.23 & 88.14 $\pm$ 3.83 & 88.35 $\pm$ 2.76 & 43.24 $\pm$ 11.45 & 0.154 \\
+\textbf{severe} & \textbf{Fed-EITA (full trust)} & \textbf{98.83 $\pm$ 0.23} & \textbf{88.14 $\pm$ 3.83} & \textbf{88.35 $\pm$ 2.76} & \textbf{43.23 $\pm$ 11.45} & \textbf{0.154} \\
+severe & FedAvg (reference) & 96.74 $\pm$ 3.31 & 81.36 $\pm$ 11.96 & 87.55 $\pm$ 2.31 & 42.79 $\pm$ 5.77 & 0.184 \\
+
+%% tab:ood
+MSP & 90.01 $\pm$ 2.66 & 67.45 $\pm$ 5.69 & 37.88 $\pm$ 11.03 & 88.18 $\pm$ 2.42 \\
+Entropy $a(x)$ & 90.31 $\pm$ 2.40 & 68.95 $\pm$ 4.03 & 37.76 $\pm$ 9.89 & 89.21 $\pm$ 1.67 \\
+Energy $E(x)$, Eq.~(\ref{eq:energy}) & 88.11 $\pm$ 4.47 & 65.04 $\pm$ 9.72 & 42.35 $\pm$ 16.73 & 88.81 $\pm$ 2.59 \\
+Mahalanobis $M(x)$ & 56.82 $\pm$ 2.42 & 20.88 $\pm$ 0.95 & 75.67 $\pm$ 8.43 & 56.82 $\pm$ 2.42 \\
+Equal-weight fusion & 88.85 $\pm$ 2.81 & 63.39 $\pm$ 5.53 & 40.04 $\pm$ 11.32 & 88.05 $\pm$ 2.14 \\
+\textbf{Fed-EITA fusion (Eq.~\ref{eq:fusion})} & \textbf{89.39 $\pm$ 2.63} & \textbf{65.11 $\pm$ 4.83} & \textbf{38.19 $\pm$ 12.15} & \textbf{88.40 $\pm$ 2.00} \\
+
+%% tab:a_ood_both
+MSP & 90.01 $\pm$ 2.66 & 67.45 $\pm$ 5.69 & 37.88 $\pm$ 11.03 & 88.18 $\pm$ 2.42 & 60.92 $\pm$ 8.54 & 38.65 $\pm$ 4.06 \\
+Entropy $a(x)$ & 90.31 $\pm$ 2.40 & 68.95 $\pm$ 4.03 & 37.76 $\pm$ 9.89 & 89.21 $\pm$ 1.67 & 65.35 $\pm$ 4.85 & 38.16 $\pm$ 3.16 \\
+Energy $E(x)$, Eq.~(\ref{eq:energy}) & 88.11 $\pm$ 4.47 & 65.04 $\pm$ 9.72 & 42.35 $\pm$ 16.73 & 88.81 $\pm$ 2.59 & 65.61 $\pm$ 11.18 & 36.53 $\pm$ 4.18 \\
+Mahalanobis $M(x)$ & 56.82 $\pm$ 2.42 & 20.88 $\pm$ 0.95 & 75.67 $\pm$ 8.43 & 56.82 $\pm$ 2.42 & 20.88 $\pm$ 0.95 & 75.67 $\pm$ 8.43 \\
+Equal-weight fusion & 88.85 $\pm$ 2.81 & 63.39 $\pm$ 5.53 & 40.04 $\pm$ 11.32 & 88.05 $\pm$ 2.14 & 60.75 $\pm$ 7.18 & 40.69 $\pm$ 4.47 \\
+\textbf{Fed-EITA fusion, Eq.~(\ref{eq:fusion})} & 89.39 $\pm$ 2.63 & 65.11 $\pm$ 4.83 & 38.19 $\pm$ 12.15 & 88.40 $\pm$ 2.00 & 62.46 $\pm$ 6.42 & 40.09 $\pm$ 3.52 \\
+
+%% tab:robust
+FedAvg & 97.12 $\pm$ 3.03 & 88.40 $\pm$ 2.00 & 40.09 $\pm$ 3.52 & 96.74 $\pm$ 3.31 & 87.55 $\pm$ 2.31 & 42.79 $\pm$ 5.77 \\
+Uniform averaging & 98.95 $\pm$ 0.17 & 88.39 $\pm$ 3.77 & 42.09 $\pm$ 16.57 & 98.89 $\pm$ 0.19 & 87.18 $\pm$ 4.59 & 47.41 $\pm$ 15.63 \\
+Coordinate-wise median & 98.87 $\pm$ 0.23 & 89.04 $\pm$ 2.63 & 40.22 $\pm$ 9.38 & 98.73 $\pm$ 0.33 & 87.21 $\pm$ 4.43 & 45.70 $\pm$ 14.84 \\
+Trimmed mean (20\%) & 98.96 $\pm$ 0.17 & 89.56 $\pm$ 2.39 & 38.15 $\pm$ 5.61 & 98.91 $\pm$ 0.21 & 88.78 $\pm$ 2.66 & 43.15 $\pm$ 6.38 \\
+Krum & 98.41 $\pm$ 0.54 & 86.87 $\pm$ 3.37 & 47.62 $\pm$ 10.74 & 95.99 $\pm$ 2.81 & 83.72 $\pm$ 3.55 & 57.40 $\pm$ 21.01 \\
+Multi-Krum & 98.72 $\pm$ 0.45 & 88.15 $\pm$ 1.47 & 38.97 $\pm$ 4.38 & 98.22 $\pm$ 0.76 & 85.80 $\pm$ 3.81 & 49.98 $\pm$ 17.70 \\
+\textbf{Fed-EITA (trust)} & \textbf{98.90 $\pm$ 0.18} & \textbf{89.39 $\pm$ 2.63} & \textbf{38.19 $\pm$ 12.15} & \textbf{98.83 $\pm$ 0.23} & \textbf{88.35 $\pm$ 2.76} & \textbf{43.23 $\pm$ 11.45} \\
+
+%% tab:cost_time
+Local XGBoost training, all clients (s) & 3.058 $\pm$ 0.335 & 0.626 $\pm$ 0.050 \\
+Uncertainty + trust computation (s) & 0.551 $\pm$ 0.076 & 0.090 $\pm$ 0.010 \\
+Overhead relative to training (\%) & 18.0 & 14.4 \\
+Inference, FedAvg (ms/1,000) & 10.42 $\pm$ 1.35 & 8.18 $\pm$ 1.41 \\
+Inference incl. OOD score, Fed-EITA (ms/1,000) & 26.45 $\pm$ 4.26 & 23.19 $\pm$ 2.04 \\
+
+%% tab:a_detect
+TON-IoT, closed set, $\alpha_D=0.1$ & 15/12 & 1/10 & 0.145--0.254 \\
+TON-IoT, closed set, $\alpha_D=0.3$ & 15/12 & 3/10 & 0.128--0.240 \\
+TON-IoT, closed set, $\alpha_D=0.5$ & 15/12 & 8/10 & 0.145--0.239 \\
+TON-IoT, closed set, $\alpha_D=1.0$ & 15/12 & 7/10 & 0.146--0.233 \\
+Edge-IIoT, closed set, $\alpha_D=0.5$ & 15/12 & 3/10 & 0.181--0.211 \\
+TON-IoT, zero-day setting, $\alpha_D=0.5$ & 15/12 & 9/10 & 0.129--0.249 \\
+TON-IoT, zero-day setting, $\alpha_D=0.5$ & 40/40 & 9/10 & 0.119--0.242 \\
+TON-IoT, zero-day setting, noise sweep & 0 (no noise) & 2/10 & 0.125--0.240 \\
+TON-IoT, zero-day setting, noise sweep & 5/5 & 3/10 & 0.127--0.235 \\
+TON-IoT, zero-day setting, noise sweep & 10/10 & 8/10 & 0.130--0.238 \\
+TON-IoT, zero-day setting, noise sweep & 15/12 & 9/10 & 0.129--0.249 \\
+TON-IoT, zero-day setting, noise sweep & 20/20 & 9/10 & 0.129--0.248 \\
+TON-IoT, zero-day setting, noise sweep & 30/30 & 9/10 & 0.122--0.244 \\
+TON-IoT, zero-day setting, noise sweep & 40/40 & 9/10 & 0.119--0.242 \\
+TON-IoT, zero-day setting, noise sweep & 60/60 & 10/10 & 0.107--0.253 \\
+TON-IoT, zero-day setting, noise sweep & 80/80 & 10/10 & 0.091--0.254 \\
+
+%% tab:a_noise
+0 (no noise) & 98.94 / 88.92 & 98.98 / 87.91 & 97.37 / 88.18 & 98.51 / 83.54 \\
+5/5 & 98.91 / 89.21 & 98.96 / 88.45 & 97.23 / 88.31 & 98.51 / 83.54 \\
+10/10 & 98.91 / 89.20 & 98.97 / 88.38 & 97.16 / 88.21 & 98.52 / 83.53 \\
+15/12 & 98.90 / 89.39 & 98.95 / 88.39 & 97.12 / 88.40 & 98.51 / 83.54 \\
+20/20 & 98.88 / 88.92 & 98.93 / 88.15 & 96.97 / 88.04 & 98.51 / 83.54 \\
+30/30 & 98.86 / 88.93 & 98.91 / 88.02 & 96.87 / 88.13 & 98.51 / 84.49 \\
+40/40 & 98.83 / 88.35 & 98.89 / 87.18 & 96.74 / 87.55 & 98.51 / 83.54 \\
+60/60 & 98.74 / 87.35 & 98.81 / 86.89 & 96.63 / 87.34 & 98.52 / 83.53 \\
+80/80 & 98.61 / 87.15 & 98.65 / 86.54 & 96.54 / 86.69 & 98.51 / 83.54 \\
+
+%% tab:a_dedup_closed
+FedAvg & 97.29 $\pm$ 3.10 & 96.72 $\pm$ 3.60 & 88.31 $\pm$ 7.78 & 87.90 $\pm$ 8.10 \\
+Uniform averaging & 98.77 $\pm$ 0.14 & 98.41 $\pm$ 0.14 & 92.46 $\pm$ 1.50 & 92.21 $\pm$ 1.49 \\
+Drift-weighted & 98.77 $\pm$ 0.14 & 98.41 $\pm$ 0.14 & 92.48 $\pm$ 1.49 & 92.22 $\pm$ 1.48 \\
+Clients 1, 2, 5 only (oracle) & 98.63 $\pm$ 0.25 & 98.22 $\pm$ 0.28 & 92.65 $\pm$ 1.78 & 92.36 $\pm$ 1.78 \\
+\textbf{Fed-EITA (trust)} & \textbf{98.74 $\pm$ 0.14} & \textbf{98.36 $\pm$ 0.14} & \textbf{92.19 $\pm$ 1.81} & \textbf{91.94 $\pm$ 1.80} \\
+
+%% tab:a_dedup_zd
+Published subsets & 20{,}000 / 5{,}000 & 98.90 $\pm$ 0.18 & 89.39 $\pm$ 2.63 & 65.11 $\pm$ 4.83 & 38.19 $\pm$ 12.15 \\
+In-distribution duplicates removed & 13{,}537 / 5{,}000 & 98.39 $\pm$ 0.27 & 85.71 $\pm$ 3.40 & 66.24 $\pm$ 4.51 & 49.93 $\pm$ 16.23 \\
+In-distribution and held-out duplicates removed & 13{,}537 / 4{,}983 & 98.39 $\pm$ 0.27 & 85.78 $\pm$ 3.39 & 66.29 $\pm$ 4.52 & 49.71 $\pm$ 16.32 \\
+
+%% tab:a_fusion
+Entropy only & 90.31 $\pm$ 2.40 & 68.95 $\pm$ 4.03 & 37.76 $\pm$ 9.89 & +0.91 & 0.115 / 0.098 \\
+Energy only & 88.11 $\pm$ 4.47 & 65.04 $\pm$ 9.72 & 42.35 $\pm$ 16.73 & $-$1.28 & 1.000 / 1.000 \\
+Mahalanobis only & 56.82 $\pm$ 2.43 & 20.88 $\pm$ 0.95 & 75.67 $\pm$ 8.43 & $-$32.57 & $<$0.001 / 0.027 \\
+Entropy + energy & 90.38 $\pm$ 2.63 & 70.28 $\pm$ 5.36 & 36.57 $\pm$ 11.24 & +0.99 & 0.009 / 0.027 \\
+Entropy + Mahalanobis & 88.83 $\pm$ 2.38 & 60.66 $\pm$ 4.00 & 38.88 $\pm$ 12.15 & $-$0.56 & 0.395 / 0.439 \\
+Energy + Mahalanobis & 85.42 $\pm$ 4.84 & 52.57 $\pm$ 7.83 & 43.93 $\pm$ 18.11 & $-$3.97 & 0.115 / 0.027 \\
+\textbf{Full fusion, Eq.~(\ref{eq:fusion})} & \textbf{89.39 $\pm$ 2.63} & \textbf{65.11 $\pm$ 4.83} & \textbf{38.19 $\pm$ 12.15} & \textbf{--} & \textbf{--} \\
+MSP (reference) & 90.01 $\pm$ 2.66 & 67.45 $\pm$ 5.69 & 37.88 $\pm$ 11.03 & +0.62 & 0.714 / 0.439 \\
+

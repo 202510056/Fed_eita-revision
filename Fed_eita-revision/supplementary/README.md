@@ -14,7 +14,7 @@ Additional analyses that test the robustness and the limits of the main findings
 | R13 | `tab:ablation` | Trust ablation: uniform, accuracy only, anomaly rate only, accuracy + anomaly rate, full trust without memory, full trust, FedAvg | `fed_eita_trust_ablation.py` | `ablation_per_seed.csv`, `ablation_stats.csv` |
 | — | — | Federated estimation of the Mahalanobis statistics (exact identity check, payload) | `verify_sufficient_statistics.py` | `verify_sufficient_statistics.txt` |
 
-Tables R2 and R7 are computed from the main experiment's outputs and are listed here because they are supplementary material in the manuscript.
+Tables R2 and R7 are computed from the main experiment's outputs and are listed here for completeness (R2 is Appendix Table A1 of the manuscript and R7 is Table 9).
 
 Statistics: `tables/statistics_robust.csv` (Table R10 comparisons) and `tables/statistics_ablation.csv` (Table R13 comparisons), paired over ten seeds with Holm correction within each noise level.
 
